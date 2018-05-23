@@ -12,11 +12,11 @@ public class TestController {
     @Value("${spring.application.name}")
     String appName;
 
-    @GetMapping("/")
-    public String home(Model model){
+    @RequestMapping("/")
+    public String ssss(Model model){
         System.out.print(appName);
         model.addAttribute("appName", appName);
 
-        return "home";
+        return "login";
     }
 }
