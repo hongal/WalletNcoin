@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.2.RELEASE'
+        springBootVersion = '1.4.4.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -16,13 +16,22 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
 war {
-    baseName = 'wallet_ncoin'    
+    baseName = 'myapp'
+    version = '0.0.1-SNAPSHOT'
 }
+task appProperties(type: Copy) {
+  from 'src/app.properties'
+  into 'build/app.properties'
+  expand([
+    buildType: '$buildType'
+  ])
+}
+
 
 
 group = 'com.geopia'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 1.7
 
 repositories {
     mavenCentral()

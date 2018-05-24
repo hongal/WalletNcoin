@@ -11,23 +11,23 @@
 	
 		<title><tiles:insertAttribute name="title" /> 관리</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-		<link rel="stylesheet" href="<c:url value='/res/css/common.css' />"></link>
-		<link rel="stylesheet" href="<c:url value='/res/css/dtree.css' />"></link>
-		<link rel="stylesheet" href="<c:url value='/res/css/listing_table.css' />"></link>
-		<link rel="stylesheet" href="<c:url value='/res/css/jquery.datetimepicker.css' />"></link>
+		<link rel="stylesheet" href="<c:url value='/resources/css/common.css' />"></link>
+		<link rel="stylesheet" href="<c:url value='/resources/css/dtree.css' />"></link>
+		<link rel="stylesheet" href="<c:url value='/resources/css/listing_table.css' />"></link>
+		<link rel="stylesheet" href="<c:url value='/resources/css/jquery.datetimepicker.css' />"></link>
 
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"></link>
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		
-		<script src="<c:url value='/res/js/jquery.blockUI.js' />"></script>
-		<script src="<c:url value='/res/js/wizAjaxCommon.js' />"></script>
+		<script src="<c:url value='/resources/js/jquery.blockUI.js' />"></script>
+		<script src="<c:url value='/resources/js/wizAjaxCommon.js' />"></script>
 
-		<script src="<c:url value='/res/js/common.js' />"></script>
-		<script src="<c:url value='/res/js/dtree.js' />"></script>
-		<script src="<c:url value='/res/js/listing_table.js' />"></script>
-		<script src="<c:url value='/res/js/bignumber.js' />"></script>
-		<script src="<c:url value='/res/js/jquery.datetimepicker.full.min.js' />"></script>
+		<script src="<c:url value='/resources/js/common.js' />"></script>
+		<script src="<c:url value='/resources/js/dtree.js' />"></script>
+		<script src="<c:url value='/resources/js/listing_table.js' />"></script>
+		<script src="<c:url value='/resources/js/bignumber.js' />"></script>
+		<script src="<c:url value='/resources/js/jquery.datetimepicker.full.min.js' />"></script>
 	</head>
 
 	<body>
