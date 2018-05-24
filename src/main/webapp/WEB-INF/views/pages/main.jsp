@@ -1,4 +1,4 @@
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<tiles:insertAttribute name="header" />
+
 <div>
     <h2>내 지갑 정보</h2>
     <p>ARS</p>
@@ -24,7 +24,7 @@
 </div>
 
 
-<div class="main_body">
+<div>
     <ul>
         <li>
             <div class="main_menu_btn" onclick="location.href='/send'">
@@ -59,6 +59,6 @@
 
     </ul>
 </div>
-<tiles:insertAttribute name="footer" />
+
 </body>
 </html>

@@ -20,4 +20,13 @@ public class MainController {
 
         return "tiles/none/login";
     }
+
+    @RequestMapping("/main")
+    public String getMainPage(Model model){
+        String current_address = "NHb3CJAWyw4Nj31VRWh36UkukG4b9dtyTs";
+
+
+        return "tiles/default/main";
+    }
+
 }

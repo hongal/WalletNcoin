@@ -30,9 +30,10 @@
     <li>
         <input type="text" placeholder="주소">
     </li>
-
-
-
+    <div class="button_container">
+        <button class="button_transparent">QR코드 스캔</button>
+        <button class="button_primary">보내기</button>
+    </div>
 </ul>
 
 </body>
