@@ -17,6 +17,6 @@ public class TestController {
         System.out.print(appName);
         model.addAttribute("appName", appName);
 
-        return "login";
+        return "tiles/none/login";
     }
 }
