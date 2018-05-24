@@ -1,0 +1,11 @@
+#main_wallet_info{
+    padding: 20px 15px 15px;
+}
+.main_body{
+    width: 700px;
+    margin: 0px auto;
+}
+
+.main_menu_btn{
+    cursor: pointer;
+}
