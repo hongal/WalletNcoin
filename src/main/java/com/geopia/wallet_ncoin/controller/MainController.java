@@ -1,4 +1,4 @@
-package com.geopia.wallet_ncoin.Controller;
+package com.geopia.wallet_ncoin.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
