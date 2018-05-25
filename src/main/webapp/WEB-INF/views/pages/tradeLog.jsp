@@ -7,20 +7,10 @@
 	String mode = request.getParameter("mode") != null ? request.getParameter("mode") : "";
 %>
 
-<div class="trade-search-title" style="padding-bottom:3px;">
-	<img src="<c:url value='/res/img/' />MarketReadIcon3.gif" alt="" width="4" height="5" style="padding-bottom: 3px">
-	<span class="CopyText2">송금 로그 검색</span>
-</div>
-<div class="admin-page-search-table bgGreen" style="box-sizing:border-box; width:<%=tableWidth%>;">
-	<span class="admin-page-search-table-title MyMoneyText1">검색</span>
-	
-	<span class="admin-page-search-table-content">
-		<select id="searchType" class="v_align_middle">
-			<option value="content">내용</option>
-		</select>
-		<input id="query" type="text" class="v_align_middle">
-		<button class="greenBtn v_align_middle pointer" onclick="setAndShowTable()">조회</button>
-	</span>
+
+<div class="button_container">
+    <button class="button_primary" id="receive_transactions" onclick="showreceive()">받은내역</button>
+    <button class="button_transparent" id="send_transactions" onclick="showsend()">보낸내역</button>
 </div>
 
 <div class="trade-list-title" style="padding-bottom:3px; margin-top:15px;">
@@ -29,6 +19,21 @@
 </div>
 <div id="trade-list-table" style="width:<%=tableWidth%>;"></div>
 <script>
+	
+	
+	function showreceive() {
+		var searchType = "aaa";
+		var query = "bbb";
+		showTable(1, 100, "receive", searchType, query);
+	}
+	
+	function showsend() {
+		var searchType = "aaa";
+		var query = "bbb";
+		showTable(1, 100, "send", searchType, query);
+	}
+
+
     function showTable(page, limit, type, searchType, query) {
         var options = {
             "type":"table",

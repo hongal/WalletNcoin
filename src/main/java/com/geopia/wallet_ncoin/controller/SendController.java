@@ -48,8 +48,8 @@ public class SendController {
  			// TODO Auto-generated catch block
  			e.printStackTrace();
  		}
- 		System.out.println("abaa");
-        return "tiles/default/sendMoney";
+ 		
+        return "tiles/none/sendMoney";
     }
     
     @RequestMapping("/sendCoinWithMsg")

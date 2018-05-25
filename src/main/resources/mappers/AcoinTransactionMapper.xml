@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+<mapper namespace="com.geopia.wallet_ncoin.mapper.AcoinTransactionMapper">
+ 
+    <insert id="addTransaction" parameterType="com.geopia.wallet_ncoin.dto.AcoinTransactionsDto">
+		INSERT INTO wiz_acoin_transactions (
+			transaction_hash
+			, account
+			, destination
+			, fee
+			, flags
+			, seq
+			, sign_pubkey
+			, transaction_type
+			, sign
+			, ledger_index
+			, amount
+		) VALUES (
+			#{transaction_hash}
+			, #{account}
+			, #{destination}
+			, #{fee}
+			, #{flags}
+			, #{seq}
+			, #{sign_pubkey}
+			, #{transaction_type}
+			, #{sign}
+			, #{ledger_index}
+			, #{amount}
+		)
+	</insert>
+	
+	<select id="queryPageTransactioninfo" resultType="com.geopia.wallet_ncoin.dto.AcoinTransactionsDto">
+		SELECT * 
+		FROM wiz_acoin_transactions 	
+		order by ledger_index desc
+	</select>
+	
+	<select id="queryPageTransactioninfobyHash" resultType="com.geopia.wallet_ncoin.dto.AcoinTransactionsDto">
+		SELECT * 
+		FROM wiz_acoin_transactions where transaction_hash = #{transaction_hash}
+		order by ledger_index desc 
+	</select>
+	
+	<select id="queryPageTransactioninfobyLedgerindex" resultType="com.geopia.wallet_ncoin.dto.AcoinTransactionsDto">
+		SELECT * 
+		FROM wiz_acoin_transactions where ledger_index = #{ledger_index}	
+		order by ledger_index desc
+	</select>
+	
+	<select id="queryPageTransactioninfobyAccountSend" resultType="com.geopia.wallet_ncoin.dto.AcoinTransactionsDto">
+		SELECT * 
+		FROM wiz_acoin_transactions where account=#{account} or destination=#{account} 	
+		order by ledger_index desc
+	</select>
+	
+	<select id="queryPageTransactioninfobyAccountReceive" resultType="com.geopia.wallet_ncoin.dto.AcoinTransactionsDto">
+		SELECT * 
+		FROM wiz_acoin_transactions where destination=#{account} 	
+		order by ledger_index desc
+	</select>
+ 
+</mapper>
+
