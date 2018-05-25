@@ -49,7 +49,7 @@ public class SendController {
  			e.printStackTrace();
  		}
  		System.out.println("abaa");
-        return "tiles/none/sendMoney";
+        return "tiles/default/sendMoney";
     }
     
     @RequestMapping("/sendCoinWithMsg")
