@@ -16,47 +16,30 @@
 <body>
 
 
-<div>
+<div class="main_content" style="flex-direction: column">
     <h2>내 지갑 정보</h2>
     <p>${amount}NCN</p>
 </div>
 
-
-<div>
-    <ul>
-        <li>
-            <div class="main_menu_btn" onclick="location.href='/send'">
-                보내기
-            </div>
-        </li>
-        <li>
-            <div class="main_menu_btn" onclick="location.href='/receive'">
-                받기
-            </div>
-        </li>
-        <li>
-            <div class="main_menu_btn" onclick="location.href='/listtransactions'">
-                거래내역
-            </div>
-        </li>
-        <li>
-            <div class="main_menu_btn" onclick="location.href='/member/modify'">
-                정보수정
-            </div>
-        </li>
-        <li>
-            <div class="main_menu_btn" onclick="location.href='/security'">
-                보안설정
-            </div>
-        </li>
-        <li>
-            <div class="main_menu_btn" onclick="location.href='/security/sPw'">
-                2차 비밀번호
-            </div>
-        </li>
-
-    </ul>
+<div class="main_content">
+    <div class="main_menu_btn" onclick="location.href='/send'">
+        보내기
+    </div>
+    <div class="main_menu_btn" onclick="location.href='/receive'">
+        받기
+    </div>
+    <div class="main_menu_btn" onclick="location.href='/listtransactions'">
+        거래내역
+    </div>
+    <div class="main_menu_btn" onclick="location.href='/member/modify'">
+        정보수정
+    </div>
+    <div class="main_menu_btn" onclick="location.href='/security'">
+        보안설정
+    </div>
+    <div class="main_menu_btn" onclick="location.href='/security/sPw'">
+        2차 비밀번호
+    </div>
 </div>
-
 </body>
 </html>

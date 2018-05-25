@@ -15,6 +15,31 @@ h1{height:17px;font-size:17px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5
 h2{height:16px;font-size:15px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5px 0;background:url(../img/dot.gif) repeat-X bottom;text-align:left;}
 h3{height:16px;font-size:13px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5px 0;background:url(../img/dot.gif) repeat-X bottom;}
 
+#default_container{
+
+
+}
+#default_header{
+	display: -webkit-flex;
+	display:         flex;
+	flex-direction: row;
+	justify-content: space-between;
+    align-items: center;
+
+	height: 56px;
+	padding: 10px 15px 10px 15px;
+	background: #5b95de;
+	border-bottom: 1px solid #6ba6f1;
+	box-shadow: 0px 0px 6px #bbb
+}
+
+.body_container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 700px;
+
+}
 .b {font-weight:bold;}
 .btn {width:40px;height:17px;border:none;font-size:0.95em;font-weight:bolder;color:#FFFFFF;background-color:#008800}
 .greenBtn {border-radius:3px;width:40px;height:18px;border:none;font-size:12px;font-weight:bolder;color:#FFFFFF;background-color:#008800;}

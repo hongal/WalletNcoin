@@ -32,7 +32,11 @@
 	</head>
 
 	<body>
-		<table cellpadding="0" cellspacing="0" style="width:100%;">
+	<div id="default_container">
+		<tiles:insertAttribute name="header" />
+		<tiles:insertAttribute name="body"  />
+	</div>
+		<%--<table cellpadding="0" cellspacing="0" style="width:100%;">
 			<tbody>
 				<tr>
 					<td style="text-align:center;">
@@ -58,7 +62,7 @@
 					<td style="text-align:center;"></td>
 				</tr>
 			</tbody>
-		</table>
+		</table>--%>
 		<div style="height:50px;"></div>
 	</body>
 </html>

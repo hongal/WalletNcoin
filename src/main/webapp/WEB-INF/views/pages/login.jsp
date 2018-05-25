@@ -50,6 +50,6 @@ function test() {
 			<span class="label">비밀번호</span> <input type="password" id="passwd" name="passwd">
 		</div>
 		<div class="submit">
-			<input type="button" onclick="test();" value="로그인">
-		</div>
+		<input type="button" onclick="test();" value="로그인">
+	</div>
 	</div>

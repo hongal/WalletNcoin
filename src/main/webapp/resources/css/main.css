@@ -1,11 +1,17 @@
 #main_wallet_info{
     padding: 20px 15px 15px;
 }
-.main_body{
-    width: 700px;
-    margin: 0px auto;
+.main_menu_btn{
+    width: 343px;
+    height: 123px;
+    cursor: pointer;
+    border: 1px solid;
+    text-align: center;
 }
 
-.main_menu_btn{
-    cursor: pointer;
+.main_content{
+    display: flex;
+    max-width: 700px;
+    flex-wrap: wrap;
+    margin: 0px auto;
 }

@@ -1,7 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div class="menuBorderBox">
+<%--<div class="menuBorderBox">
     <div class="menuBox">
         <div class="b" style="font-size:20px;padding-left:5px;">N코인</div>
     </div>
@@ -9,7 +9,7 @@
     <div class="border tr"></div>
     <div class="border bl"></div>
     <div class="border br"></div>
-</div>
+</div>--%>
 <%--<div class="menuBorderBox" style="margin-top:5px;">
     <div class="menuBox"
         <script>
@@ -35,6 +35,7 @@
     <div class="border br"></div>
 </div>--%>
 
+<%--
 <div>
     <ul>
         <li>
@@ -77,4 +78,10 @@
     <div class="border tr"></div>
     <div class="border bl"></div>
     <div class="border br"></div>
+</div>--%>
+
+<div id="default_header">
+    <span>Arisu Coin</span>
+    <span>메뉴 버튼</span>
+
 </div>

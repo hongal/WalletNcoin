@@ -34,6 +34,6 @@ public class ReceiveController {
 
 
 
-        return "tiles/none/receive";
+        return "tiles/default/receive";
     }
 }

@@ -1,0 +1,16 @@
+#register_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#register_body{
+    max-width: 256px;
+    border: 1px solid #eaeaea;
+    padding: 40px 20px;
+    min-height: 150px;
+}
+img{
+    display: inline;
+}
