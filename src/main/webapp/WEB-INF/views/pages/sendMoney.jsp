@@ -246,7 +246,7 @@
 					}
   					console.log(data);
   					alert("성공");
-  					var curUrl = "<c:url value='/sendMoney.do' />";
+  					var curUrl = "<c:url value='/send' />";
   					<%=target != "" ? "location.href = curUrl;" : "" %> 
   				}
   				,complete : function() {

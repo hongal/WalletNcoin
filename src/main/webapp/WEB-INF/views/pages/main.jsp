@@ -18,9 +18,7 @@
 
 <div>
     <h2>내 지갑 정보</h2>
-    <p>${Amount}ARS</p>
-    <p>ARS</p>
-
+    <p>${amount}NCN</p>
 </div>
 
 
