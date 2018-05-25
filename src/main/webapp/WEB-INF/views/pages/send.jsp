@@ -17,18 +17,21 @@
 <p>ARS</p>
 <ul>
     <li>
-        <input type="text" maxlength="20" placeholder="수량">
+        <input id="amount" type="text" maxlength="20" placeholder="수량">
     </li>
     <li>+</li>
     <li>
-        <input type="text" placeholder="수수료">
+        <input id="fee" type="text" placeholder="수수료">
     </li>
     <p></p>
     <li>
-        <input type="text" placeholder="총 전송 수량">
+        <input id="totalamount" type="text" placeholder="총 전송 수량">
     </li>
     <li>
-        <input type="text" placeholder="주소">
+        <input id="destination" type="text" placeholder="보낼 주소">
+    </li>
+    <li>
+        <input id="secret" type="text" placeholder="시크릿키">
     </li>
     <div class="button_container">
         <button class="button_transparent">QR코드 스캔</button>

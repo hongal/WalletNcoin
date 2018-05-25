@@ -28,13 +28,13 @@ public class TestController {
         AcoinAddressVO vo;
 		try {
 			vo = acoinaddressmapper.select("NHb3CJAWyw4Nj31VRWh36UkukG4b9dtyTs");
-			 System.out.println(vo.getAmount());
+			model.addAttribute("amount", vo.getAmount());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("abaa");
         
-        return "tiles/none/login";
+        return "tiles/none/main";
     }
 }

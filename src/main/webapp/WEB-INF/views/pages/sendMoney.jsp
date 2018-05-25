@@ -99,6 +99,12 @@
 
 <script>
 	getFee();
+	setSenderAddress();
+	
+	function setSenderAddress() {
+		$('#sender_address')[0].value = "${address}";
+	}
+	
 	if ($('#recipient_address')[0].value != "") {
 		getLedgerInfo();
 		

@@ -18,7 +18,7 @@
 
 <div>
     <h2>내 지갑 정보</h2>
-    <p>ARS</p>
+    <p>${Amount}ARS</p>
     <p>ARS</p>
 
 </div>
