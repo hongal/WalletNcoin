@@ -12,7 +12,7 @@
     <title>회원가입</title>
 </head>
 <body>
-<div class="body_container">
+<div class="body_container" style="width: 100%">
     <input id="id" type="text"placeholder="회원아이디">
     <input id="pw" type="password" placeholder="비밀번호" >
     <input id="pwck" type="password" placeholder="비밀번호 확인" >

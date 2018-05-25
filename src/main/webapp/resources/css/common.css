@@ -1,4 +1,4 @@
-body{background-color:#ffffff;margin:0;text-align:center;}
+/*body{background-color:#ffffff;margin:0;text-align:center;}
 body, div, td, li{font-size:12px;color:#444444;font-family:돋움;}
 tr {text-align:left;}
 
@@ -13,9 +13,10 @@ ul, ol, li{list-style:none;}
 
 h1{height:17px;font-size:17px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5px 0;background:url(../img/dot.gif) repeat-X bottom;}
 h2{height:16px;font-size:15px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5px 0;background:url(../img/dot.gif) repeat-X bottom;text-align:left;}
-h3{height:16px;font-size:13px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5px 0;background:url(../img/dot.gif) repeat-X bottom;}
+h3{height:16px;font-size:13px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5px 0;background:url(../img/dot.gif) repeat-X bottom;}*/
 
 #default_container{
+	width: 100%;
 
 
 }
@@ -33,13 +34,35 @@ h3{height:16px;font-size:13px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5
 	box-shadow: 0px 0px 6px #bbb
 }
 
-.body_container{
+.primary_container_column{
+	;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	max-width: 700px;
-
 }
+
+.primary_container{
+	max-width: 700px;
+	display: flex;
+	flex-direction: column;
+	margin: 0px auto;
+	padding: 5px;
+}
+.primary_content_row{
+	display: flex;
+	flex-direction: row;
+}
+.primary_content_column{
+	display: flex;
+	flex-direction: column;
+}
+
+body{
+	margin: 0 auto;
+	max-height: 100%;
+	padding: 0px;
+}
+
+/*
 .b {font-weight:bold;}
 .btn {width:40px;height:17px;border:none;font-size:0.95em;font-weight:bolder;color:#FFFFFF;background-color:#008800}
 .greenBtn {border-radius:3px;width:40px;height:18px;border:none;font-size:12px;font-weight:bolder;color:#FFFFFF;background-color:#008800;}
@@ -91,12 +114,12 @@ a:active{text-decoration:none;}
 
 .display_none { display: none; }
 
-/* img vertical-align */
+!* img vertical-align *!
 .imgTop{vertical-align:top;}
 .imgMiddle{vertical-align:middle;}
 .imgBottom{vertical-align:bottom;}
 
-/* border box */
+!* border box *!
 .border{position:absolute;width:3px;height:3px;font-size:1px;}
 .tl{top:-1px;left:-1px;}
 .tr{background-position:top right;top:-1px;right:-1px;}
@@ -132,15 +155,15 @@ a:active{text-decoration:none;}
 
 .squareBoxWhite{position:relative;border:solid 1px #CECBCE;background-color:#FFFFFF;padding:5px;text-align:left;}
 
-/* login box */
+!* login box *!
 #loginBox{padding:4px 0 0 7px;font-size:11px;}
 #loginBox label{position:relative;bottom:2px;}
 #loginBox li{font-size:11px;padding-top:5px;}
 
-/* customer box */
+!* customer box *!
 #customerBox{padding-top:5px;width:190px;}
 
-/* rank */
+!* rank *!
 .rank{position:relative;}
 .rank li{position:relative;height:18px;}
 .rank span{position:absolute; top:0px;left:138px; width:30px; padding-left:15px;font-size:11px;}
@@ -169,7 +192,7 @@ a:active{text-decoration:none;}
 
 .quickmenu{padding-top:5px;width:200px;}
 
-/* wrap */
+!* wrap *!
 #wrapper{position:relative;width:980px;margin:auto;}
 #topwrapper{position:relative;width:980px;height:140px;}
 #mainwrapper{position:relative;width:980px;height:200px;margin-top:5px;}
@@ -177,7 +200,7 @@ a:active{text-decoration:none;}
 #rightwrapper{position:relative;width:780px;float:right;margin-top:5px;}
 #bottomwrapper{position:relative;width:980px;height:60px;margin-top:5px;clear:both;}
 
-/* adminW wrap */
+!* adminW wrap *!
 #adminWleftwrapper{position:relative;width:770px;float:left;z-index:-1;margin-top:5px;}
 #adminWrightwrapper{position:relative;width:200px;float:right;margin:5px 0 0 10px;}
 
@@ -195,7 +218,7 @@ a:active{text-decoration:none;}
 .serverInfo h3{padding-left:5px;}
 .serverInfo li{height:20px;padding-left:5px;}
 
-/* gameknowV wrap */
+!* gameknowV wrap *!
 #gameknowVleftwrapper{position:relative;width:730px;float:left;margin-top:5px;}
 #gameknowVrightwrapper{position:relative;width:240px;float:right;margin-top:5px;}
 
@@ -209,7 +232,7 @@ a:active{text-decoration:none;}
 .reply li .replyTit{position:relative;top:0;left:5px;width:100px;float:left;}
 .reply li .replyContent{position:relative;top:0;left:15px;float:left;}
 
-/* editor */
+!* editor *!
 .editorBox li{height:30px;}
 .editorBox li .tit{font-weight:bold;}
 .editorBox li .opt{padding-left:10px;}
@@ -217,16 +240,16 @@ a:active{text-decoration:none;}
 .editorBox label{position:relative;bottom:1px;}
 
 
-/* display none block */
+!* display none block *!
 .displayNone{display:none;}
 .displayBlock{display:block;}
 
-/* server category */
+!* server category *!
 #serverCategory li{position:relative;height:18px;}
 #serverCategory li span.spanl{position:absolute;top:0;left:0;width:80px;}
 #serverCategory li span.spanr{position:absolute;top:0;left:90px;width:80px;}
 
-/* gameknow box */
+!* gameknow box *!
 .gameknow li{position:relative;height:20px;}
 .gameknow li span.category{position:absolute;top:0;left:0;width:80px;}
 .gameknow li span.tit{position:absolute;top:0;left:90px;}
@@ -316,15 +339,15 @@ ul.suggest li{text-align:left;font-weight:normal;letter-spacing:-1px;color:#6666
 .graph2 li{padding:4px;}
 .graph2 .opt{position:absolute;right:0px;width:80px;text-align:right;}
 
-/* tooltip */
+!* tooltip *!
 .tooltipHeader{background:#D5EBF9;font-weight:bold;border:1px solid #A5CFE9;padding:5px;width:400px;};
 .tooltipBody{text-align:left;background:#FFFFFF;padding:5px;width:400px;border-left:1px solid #A5CFE9;border-right:1px solid #A5CFE9;border-bottom:1px solid #A5CFE9;}
 
-/* miniLayer */
+!* miniLayer *!
 #miniLayer ul{padding:10px;margin:0;border:solid 1px #CECBCE;background-color:#FFFFFF;text-align:left;}
 #miniLayer li{line-height:18px;}
 
-/* page */
+!* page *!
 .knowdb_page_text1 {color: #000000; font-size: 12px; font-family: Verdana;}
 A.knowdb_page_link1:link {text-decoration: none; font-family: Verdana; color: #000000; font-size: 12px; font-weight: bold; LETTER-SPACING:-1px;}
 A.knowdb_page_link1:visited {text-decoration: none; font-family: Verdana; color: #000000; font-size: 12px; font-weight: bold; LETTER-SPACING:-1px;}
@@ -334,7 +357,7 @@ A.knowdb_page_link2:link {text-decoration: none; font-family: Verdana; color: #F
 A.knowdb_page_link2:visited {text-decoration: none; font-family: Verdana; color: #FFFFFF; font-size: 12px; font-weight: bold; background-color: #4E0092; LETTER-SPACING:-1px;}
 A.knowdb_page_link2:hover {text-decoration: none; font-family: Verdana; color: #FFFFFF; font-size: 12px; font-weight: bold; background-color: #4E0092; LETTER-SPACING:-1px;}
 
-/* page */
+!* page *!
 A.page_link1:link {text-decoration: none; font-family: 굴림;  color: #3A3A3A; font-size: 12px; line-height: 130%; font-weight: bold;}
 A.page_link1:visited {text-decoration: none; font-family: 굴림;  color: #3A3A3A; font-size: 12px; line-height: 130%; font-weight: bold;}
 A.page_link1:hover {text-decoration: none; font-family: 굴림;  color: #FF3600; font-size: 12px; line-height: 130%; font-weight: bold;}
@@ -352,7 +375,7 @@ A.page_link2:hover {text-decoration: none; font-family: 굴림;  color: #FF3600;
 .man{color:#1e7bc2; font-size:12px; font-family:돋움;}
 .woman{color:#fa5085; font-size:12px; font-family:돋움;}
 
-/* login */
+!* login *!
 .loginForm {
 	width: 250px;
 	background-color: #eee;
@@ -483,3 +506,4 @@ A.page_link2:hover {text-decoration: none; font-family: 굴림;  color: #FF3600;
 	border-left: 1px solid #93bb93;
 	padding: 5px 10px;
 }
+*/

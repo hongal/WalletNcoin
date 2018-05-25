@@ -12,6 +12,7 @@
 	
 		<title><tiles:insertAttribute name="title" /> 관리</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="<c:url value='/resources/css/common.css' />"></link>
 		<link rel="stylesheet" href="<c:url value='/resources/css/dtree.css' />"></link>
 		<link rel="stylesheet" href="<c:url value='/resources/css/listing_table.css' />"></link>

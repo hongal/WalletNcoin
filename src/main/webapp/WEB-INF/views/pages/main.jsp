@@ -9,37 +9,37 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/resources/css/main.css" rel="stylesheet" type="text/css">
     <title>Title</title>
 </head>
 <body>
+<div class="primary_container">
+    <div class="primary_content_column" >
+        <h2>내 지갑 정보</h2>
+        <p>${amount}NCN</p>
+    </div>
 
-
-<div class="main_content" style="flex-direction: column">
-    <h2>내 지갑 정보</h2>
-    <p>${amount}NCN</p>
+    <div class="primary_content_row" style="max-width: 700px; flex-wrap: wrap; ">
+        <div class="main_menu_btn" onclick="location.href='/send'">
+            보내기
+        </div>
+        <div class="main_menu_btn" onclick="location.href='/receive'">
+            받기
+        </div>
+        <div class="main_menu_btn" onclick="location.href='/listtransactions'">
+            거래내역
+        </div>
+        <div class="main_menu_btn" onclick="location.href='/member/modify'">
+            정보수정
+        </div>
+        <div class="main_menu_btn" onclick="location.href='/security'">
+            보안설정
+        </div>
+        <div class="main_menu_btn" onclick="location.href='/security/sPw'">
+            2차 비밀번호
+        </div>
+    </div>
 </div>
 
-<div class="main_content">
-    <div class="main_menu_btn" onclick="location.href='/send'">
-        보내기
-    </div>
-    <div class="main_menu_btn" onclick="location.href='/receive'">
-        받기
-    </div>
-    <div class="main_menu_btn" onclick="location.href='/listtransactions'">
-        거래내역
-    </div>
-    <div class="main_menu_btn" onclick="location.href='/member/modify'">
-        정보수정
-    </div>
-    <div class="main_menu_btn" onclick="location.href='/security'">
-        보안설정
-    </div>
-    <div class="main_menu_btn" onclick="location.href='/security/sPw'">
-        2차 비밀번호
-    </div>
-</div>
 </body>
 </html>

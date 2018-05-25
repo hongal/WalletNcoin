@@ -27,16 +27,20 @@
     </script>
 </head>
 <body>
-<div id="register_container">
-    <div id="register_header">
+<div class="primary_container">
+    <div class="primary_content_column">
+        <h2>내 지갑 정보</h2>
         <h3>받기</h3>
-        <h2>Qr Code</h2>
+        <h3>Qr Code</h3>
     </div>
     <div id="register_body">
 
     </div>
-    <p>1234567890</p>
-    <button class="button_primary">주소복사</button>
+    <div class="primary_content_column" style="align-items: center">
+        <p>1234567890</p>
+        <button class="button_primary">주소복사</button>
+    </div>
+
 </div>
 
 
