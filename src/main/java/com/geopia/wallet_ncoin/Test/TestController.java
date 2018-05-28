@@ -18,23 +18,6 @@ public class TestController {
     @Value("${spring.application.name}")
     String appName;
     
-    @Autowired
-    private AcoinAddressMapper acoinaddressmapper;
-
-    @RequestMapping("/")
-    public String ssss(Model model){
-        System.out.println(appName);
-        model.addAttribute("appName", appName);
-        AcoinAddressVO vo;
-		try {
-			vo = acoinaddressmapper.select("NHb3CJAWyw4Nj31VRWh36UkukG4b9dtyTs");
-			model.addAttribute("amount", vo.getAmount());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("abaa");
-        
-        return "tiles/none/main";
-    }
+ 
+    
 }
