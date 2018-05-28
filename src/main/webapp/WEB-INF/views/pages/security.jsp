@@ -11,17 +11,20 @@
     <title>보안설정</title>
 </head>
 <body>
-<h3>구글 2Factor(Google OTP)</h3>
-<div>
-    <input type="checkbox"><span>OTP사용</span>
-    <button class="button_transparent">새 키 등록</button>
-</div>
+<div class="primary_container">
+    <div class="primary_content_column">
+        <h3>구글 2Factor(Google OTP)</h3>
+        <div class="primary_content_row">
+            <input type="checkbox" style="flex-grow: 1"><span style="flex-grow: 1">OTP사용</span>
+            <button class="button_transparent" style="flex-grow: 1">새 키 등록</button>
+        </div>
 
-<div></div>
 
-<div class="button_container">
-    <button class="button_transparent">Google OTP 설정</button>
-    <button class="button_primary">OTP app download</button>
+        <div class="primary_content_row">
+            <button class="button_transparent" style="flex-grow: 1">Google OTP 설정</button>
+            <button class="button_primary" style="flex-grow: 1">OTP app download</button>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <html>
 <head>
     <link href="/resources/css/main.css" rel="stylesheet" type="text/css">
-    <title>Title</title>
+    <title>메인</title>
 </head>
 <body>
 <div class="primary_container">

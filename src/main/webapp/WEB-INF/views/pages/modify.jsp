@@ -11,15 +11,21 @@
     <title>정보수정</title>
 </head>
 <body>
-<h3>정보수정</h3>
+<div class="primary_container">
+    <div class="primary_content_column">
+        <h3>정보수정</h3>
 
-<div class="button_container">
-    <button class="button_primary">비밀번호 변경</button>
-    <button class="button_transparent">휴대폰번호 변경</button>
+        <div class="primary_content_row">
+            <button class="button_primary" style="flex-grow: 1">비밀번호 변경</button>
+            <button class="button_transparent" style="flex-grow: 1">휴대폰번호 변경</button>
+        </div>
+
+        <input type="text" placeholder="Password">
+        <input type="text" placeholder="RePassword">
+        <button class="button_primary">회원정보 수정</button>
+    </div>
+
 </div>
 
-<input type="text" placeholder="Password">
-<input type="text" placeholder="RePassword">
-<button class="button_primary">회원정보 수정</button>
 </body>
 </html>
