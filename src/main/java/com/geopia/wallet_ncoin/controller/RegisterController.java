@@ -44,4 +44,12 @@ public class RegisterController {
 		
 		return "tiles/none/login";
 	}
+	
+	@RequestMapping("/login")
+	public String login(Map<String, Object> param,ModelMap  mv) {
+		
+		
+		
+		return "tiles/none/login";
+	}
 }

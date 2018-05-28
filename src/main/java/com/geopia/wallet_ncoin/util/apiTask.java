@@ -1,9 +1,11 @@
 package com.geopia.wallet_ncoin.util;
 import java.io.BufferedReader;
 import java.io.Closeable;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.security.SecureRandom;
@@ -32,6 +34,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
+import com.wiz.android.acoin.WalletImpl;
+import com.wiz.android.acoin.WalletLibApi;
 import com.geopia.wallet_ncoin.mapper.AcoinAddressMapper;
 import com.geopia.wallet_ncoin.dto.AcoinAddressinfoDto;
 import com.geopia.wallet_ncoin.dto.AcoinTransactionsDto;
@@ -48,6 +52,13 @@ public class apiTask {
 	private static final Logger LOGGER = LoggerFactory.getLogger(apiTask.class);
 
 	 public static final String RPCURL = "http://13.125.128.108:8080/Test";
+	 public static final String APIURL = "http://api.ncoin.news/";
+	 
+	 public static final String method_history_transaction = "history_transaction.json";
+	 public static final String method_newAddress = "newAddress.json";
+	 public static final String method_getAccountInfo = "getAccountInfo.json";
+	 public static final String method_transaction_submit = "transaction_submit.json";
+	 
 	 private static int jsonIdSequence = 1;
 	 private static Gson gson = new Gson();
 	 private static Map<String, AcoinTransactionsDto> map = new HashMap();
@@ -182,6 +193,40 @@ public class apiTask {
 	        String ret = sendJsonRpc("tx_history", params, url, "", "");
 	        return ret;
 	  }
+	 
+	 public static String sign(String Account
+	            ,String amount,String Destination,String sec,String memoStr,String fee) {
+		 WalletLibApi api = new WalletImpl();
+		 Map<String, Object> tx_json = new HashMap<String, Object>();
+	     tx_json.put("Account", Account);
+	     tx_json.put("Amount", amount);
+	     tx_json.put("Destination",Destination);
+	     tx_json.put("TransactionType","Payment");
+	     tx_json.put("Fee",fee);
+	     if(memoStr!=null) {
+	        List<Map> memoList=new ArrayList<Map>();
+		        
+		    Map<String,String> memo=new HashMap<String,String>();
+		    memo.put("MemoType", "687474703a2f2f6578616d706c652e636f6d2f6d656d6f2f67656e65726963");
+		    memo.put("MemoData", String.copyValueOf(Hex.encode(memoStr.getBytes())));
+			        	
+		    Map<String,Object> memos=new HashMap<String,Object>();
+		    memos.put("Memo",  memo);
+		    memoList.add(memos);
+		    tx_json.put("Memos", memoList);
+	     }
+	     
+	     			
+	     try {
+			System.out.println(api.sign(sec, gson.toJson(tx_json)));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	     
+	     return null;
+	     
+	 }
 	 
 	
 	 
@@ -451,7 +496,45 @@ public class apiTask {
 		 }
 		return null;
 	 }
-	
+	public static String sendApiCall(String method,HashMap parameters) throws MalformedURLException {
+		BufferedReader rd = null;
+	    String jsonText = "";
+	    OutputStreamWriter wr = null;
+	    URLConnection conn = null;
+		Map apiwrapper = new HashMap();
+		if (parameters != null)
+			apiwrapper.putAll(parameters);
+		 try {
+			URL url = new URL(APIURL + method);
+			conn = url.openConnection();
+			String basicAuth = "Basic ";
+			conn.setRequestProperty("Authorization", basicAuth);
+	        conn.setRequestProperty("Content-Type", "application/json");
+	        conn.setDoOutput(true);
+
+	        wr = new OutputStreamWriter(conn.getOutputStream());
+
+	        String sendJson = gson.toJson(apiwrapper);
+	        wr.write(sendJson);
+            wr.flush();
+            rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String line;
+            while ((line = rd.readLine()) != null) {
+                jsonText += line;
+            }
+            rd.close();
+	        
+		} 
+		 catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+            close(rd);
+            close(wr);
+        } 
+		return (jsonText);
+		
+	}
 	 
 	public static String sendJsonRpc(String method, List parameters, String rpxcurl, String rpcName, String rpcPwd)
             throws Exception {

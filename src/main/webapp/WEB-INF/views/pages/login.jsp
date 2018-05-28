@@ -40,7 +40,7 @@ function test() {
 
 //-->
 </script>
-
+<!-- 
 	<div id="login" class="loginForm">
 		<span class="title">※관리자 로그인</span>
 		<div class="userid">
@@ -53,3 +53,15 @@ function test() {
 		<input type="button" onclick="test();" value="로그인">
 	</div>
 	</div>
+	 -->
+	<form class="loginForm" name='f' action='/login' method='POST'>
+		<span class="title">※관리자 로그인</span>
+		<table>
+			<tr><td>아이디:</td><td><input type='text' name='username' value=''></td></tr>
+			<tr><td>비밀번호:</td><td><input type='password' name='password'/></td></tr>
+			<tr><td colspan='2'><input name="submit" type="submit" value="로그인"/></td></tr>
+		</table>
+	</form>
+	
+	
+	

@@ -19,14 +19,6 @@ public class MainController {
     private AcoinAddressMapper acoinaddressmapper;
 
 
-    @RequestMapping("/test")
-    public String ssss(Model model){
-        String current_address = "NHb3CJAWyw4Nj31VRWh36UkukG4b9dtyTs";
-        
-        model.addAttribute("appName", appName);
-
-        return "tiles/none/login";
-    }
 
    
     

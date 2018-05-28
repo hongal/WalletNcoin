@@ -84,6 +84,38 @@ public class SendController {
 		return "tiles/default/tradeLog";
 	}
     
+    @RequestMapping("/signandsubmit")
+    public String sendWithMsg(Map<String, Object> paramss, ModelMap  mv, HttpServletRequest request,SendMoneyDto sendParam) {
+		
+		Exception ex=null;
+		try {
+			String accountInfo=apiTask.account_info(apiTask.RPCURL, sendParam.getSender_address());
+			
+			JsonRPCDto dot=gson.fromJson(accountInfo, JsonRPCDto.class);
+			AccountDataDto dto=dot.getResult().getAccount_data();
+			String Sequence=dto.getSequence();
+			
+			String resoponse=apiTask.payMents(
+							apiTask.RPCURL
+							, sendParam.getSender_address()
+							, sendParam.getSendAmount()
+							, sendParam.getRecipient_address()
+							, Sequence
+							, sendParam.getSecret_key()
+							,sendParam.getTag()
+							,sendParam.getFee()
+			);
+		
+			mv.put("sendState", gson.fromJson(resoponse,HashMap.class));
+		}catch (Exception e) {
+			LOGGER.error(e.getMessage(),e);
+			ex=e;
+		}
+		ApiResponseCode.makeResponse(mv, ApiResponseCode.StateCode.SUCCESS, ApiResponseCode.DetailCode.SUCCESS, ex);
+		
+		return "tiles/default/tradeLog";
+	}
+    
     @RequestMapping("/getFee")
 	public String getFee(Map<String, Object> param, ModelMap  mv, HttpServletRequest request) {
 		SettingDto dto;
