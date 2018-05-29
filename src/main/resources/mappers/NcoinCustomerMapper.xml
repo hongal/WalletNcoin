@@ -5,26 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
 <mapper namespace="com.geopia.wallet_ncoin.mapper.NcoinCustomerMapper">
  
-    <insert id="addcustomer" parameterType="com.geopia.wallet_ncoin.dto.NcoinCustomerDto">
-		INSERT INTO ncoin_customer (
-			id,
-			password,
-			country,
-			phone,
-			ncoin_address
-		) VALUES (
-			#{id}
-			, PASSWORD(#{password})
-			, #{country}
-			, #{phone}
-			, #{ncoin_address}
-		)
-	</insert>
-	
+   
 	<select id="findById" resultType="com.geopia.wallet_ncoin.dto.NcoinCustomerDto">
-		select * from ncoin_customer where id =
+		SELECT * FROM ncoin_customer WHERE id =
 		#{userid}
-		)
 	</select>
  
 </mapper>
