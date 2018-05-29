@@ -48,7 +48,7 @@ public class RegisterController {
 	@RequestMapping("/login")
 	public String login(Map<String, Object> param,ModelMap  mv) {
 		
-		
+		System.out.println("test");
 		
 		return "tiles/none/login";
 	}

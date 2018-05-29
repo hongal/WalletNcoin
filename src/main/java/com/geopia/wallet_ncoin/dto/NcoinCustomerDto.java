@@ -1,5 +1,8 @@
 package com.geopia.wallet_ncoin.dto;
 
+import java.util.Date;
+import java.util.Set;
+
 public class NcoinCustomerDto {
 	int idx;
 	String id;
@@ -7,6 +10,28 @@ public class NcoinCustomerDto {
 	String country;
 	String phone;
 	String ncoin_address;
+	Date reg_date;
+	Date update_date;
+	int enabled;
+	
+	public int getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+	public Date getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
+	}
+	public Date getUpdate_date() {
+		return update_date;
+	}
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
+	}
 	public int getIdx() {
 		return idx;
 	}
