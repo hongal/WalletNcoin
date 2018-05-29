@@ -19,6 +19,7 @@ import com.geopia.wallet_ncoin.mapper.AcoinSettingMapper;
 import com.geopia.wallet_ncoin.util.apiTask;
 import com.google.gson.Gson;
 import com.geopia.wallet_ncoin.api.dto.SettingDto;
+import com.geopia.wallet_ncoin.api.dto.SubmitResultDto;
 import com.geopia.wallet_ncoin.api.dto.SendMoneyDto;
 import com.geopia.wallet_ncoin.jsonrpc.dto.AccountDataDto;
 import com.geopia.wallet_ncoin.jsonrpc.dto.JsonRPCDto;
@@ -57,24 +58,19 @@ public class SendController {
 		
 		Exception ex=null;
 		try {
-			String accountInfo=apiTask.account_info(apiTask.RPCURL, sendParam.getSender_address());
 			
-			JsonRPCDto dot=gson.fromJson(accountInfo, JsonRPCDto.class);
-			AccountDataDto dto=dot.getResult().getAccount_data();
-			String Sequence=dto.getSequence();
+			HashMap map = new HashMap();
+    		
+			String tx_blob = apiTask.sign(sendParam.getSender_address(), 
+					sendParam.getSendAmount(), 
+					sendParam.getRecipient_address(), 
+					sendParam.getSecret_key(), 
+					sendParam.getTag(), 
+					sendParam.getFee());
+			map.put("tx_blob", tx_blob);
 			
-			String resoponse=apiTask.payMents(
-							apiTask.RPCURL
-							, sendParam.getSender_address()
-							, sendParam.getSendAmount()
-							, sendParam.getRecipient_address()
-							, Sequence
-							, sendParam.getSecret_key()
-							,sendParam.getTag()
-							,sendParam.getFee()
-			);
-		
-			mv.put("sendState", gson.fromJson(resoponse,HashMap.class));
+			String ret = apiTask.sendApiCall(apiTask.method_transaction_submit, map);
+			mv.put("sendState", gson.fromJson(ret,HashMap.class));
 		}catch (Exception e) {
 			LOGGER.error(e.getMessage(),e);
 			ex=e;

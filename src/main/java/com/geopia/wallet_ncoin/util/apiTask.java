@@ -216,15 +216,31 @@ public class apiTask {
 		    tx_json.put("Memos", memoList);
 	     }
 	     
-	     			
+	     String accountInfo = null;
+		try {
+			accountInfo = apiTask.account_info(apiTask.RPCURL, Account);
+			} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+			
+	     JsonRPCDto dot=gson.fromJson(accountInfo, JsonRPCDto.class);
+	     AccountDataDto dto=dot.getResult().getAccount_data();
+	     String Sequence=dto.getSequence();
+	     tx_json.put("Sequence", Sequence);
+	     		
+	     
+	     String tx_blob = null;
 	     try {
-			System.out.println(api.sign(sec, gson.toJson(tx_json)));
+			tx_blob = api.sign(sec, gson.toJson(tx_json));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	     
-	     return null;
+	     
+	     
+	     return tx_blob;
 	     
 	 }
 	 

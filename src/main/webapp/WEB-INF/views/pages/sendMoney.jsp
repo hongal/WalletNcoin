@@ -240,7 +240,7 @@
   					,secret_key:secret_key.value
   				}
   				,success : function(data) {
-					if(data.sendState.result.status=='error'){
+					if(data.sendState.jsonRPCSubmitResultDto.status=='error'){
 						alert(data.sendState.result.error+"\t"+data.sendState.result.error_message);
 						return;
 					}
