@@ -55,11 +55,96 @@ h3{height:16px;font-size:13px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5
 	flex-direction: column;
 }
 
+/*input 기본 스타일*/
+.primary_input{
+	font-size: 19px;
+	padding: 10px 0px 8px;
+	height: auto;
+	background: transparent;
+	box-shadow: none;
+	border: none;
+	border-radius: 0px;
+
+	cursor: text;
+}
+/*주황색 버튼*/
+.button_primary{
+	background-color: #f9be1c;
+	color: #fff;
+	border: 1px solid #f9be1c;
+	padding: 10px 10px 7px;
+
+	border-radius: 6px;
+	width: 100%;
+	display: block;
+	text-align: center;
+	font-size: 19px;
+	cursor: pointer;
+}
+
+.button_primary:hover{
+	background-color: #fff;
+}
+/*투명버튼*/
+.button_transparent{
+	color: #669fe8;
+	background-color: #fff;
+	border: 1px solid #80b3f5;
+	padding: 10px 10px 7px;
+	border-radius: 6px;
+	display: block;
+	width: 100%;
+	font-size: 19px;
+	text-align: center;
+	cursor: pointer;
+	height: auto;
+}
+.button_transparent:hover{
+	color: #fff;
+	background-color: #669fe8;
+}
 body{
 	margin: 0 auto;
 	max-height: 100%;
 	padding: 0px;
 }
+
+input, textarea, select, button {
+	text-rendering: auto;
+	color: initial;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+	margin: 0em;
+	padding: 18px 7px;
+	font: 400 13.3333px Arial;
+}
+
+textarea:focus, input:focus{
+	outline: none;
+	border-bottom-color: #5b95de;
+}
+
+@media (min-width: 768px){
+	.primary_container{
+		padding: 20px 0px;
+	}
+	.primary_input {
+		padding: 12px;
+		border-bottom: 2px solid #ddd;
+	}
+	.button_primary{
+		font-weight: bold;
+	}
+	.button_transparent{
+		font-weight: bold;
+	}
+}
+
 
 /*
 .b {font-weight:bold;}

@@ -20,8 +20,8 @@
             <button class="button_transparent" style="flex-grow: 1">휴대폰번호 변경</button>
         </div>
 
-        <input type="text" placeholder="Password">
-        <input type="text" placeholder="RePassword">
+        <input type="text" placeholder="Password" class="primary_input">
+        <input type="text" placeholder="RePassword" class="primary_input">
         <button class="button_primary">회원정보 수정</button>
     </div>
 

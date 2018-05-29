@@ -14,10 +14,10 @@
 <body>
 <div class="primary_container">
     <div class="primary_content_column">
-        <div class="primary_content_row">
+        <div class="primary_content_row" style="align-items: baseline">
             <input type="checkbox" ><span>2차 비밀번호 사용</span>
         </div>
-        <input type="text" placeholder="4자리 숫자">
+        <input type="text" placeholder="4자리 숫자" class="primary_input">
         <p class="attention">
             4 자리 숫자를 입력하세요.<br>
             2차 비밀번호를 설정 하실경우<br>

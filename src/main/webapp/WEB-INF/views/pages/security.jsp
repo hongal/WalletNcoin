@@ -14,9 +14,9 @@
 <div class="primary_container">
     <div class="primary_content_column">
         <h3>구글 2Factor(Google OTP)</h3>
-        <div class="primary_content_row">
+        <div class="primary_content_row" style="align-items: baseline">
             <input type="checkbox" style="flex-grow: 1"><span style="flex-grow: 1">OTP사용</span>
-            <button class="button_transparent" style="flex-grow: 1">새 키 등록</button>
+            <button class="button_transparent" style="flex-grow: 1; width: auto">새 키 등록</button>
         </div>
 
 

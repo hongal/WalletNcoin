@@ -79,9 +79,89 @@
     <div class="border bl"></div>
     <div class="border br"></div>
 </div>--%>
+<style>
+    #mask{
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        z-index: 3;
+        background-color: rgb(0, 0, 0);
+        opacity: 0.5;
+        display: none;
+    }
+
+    #sideNav{
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        background: #f5f5f5;
+        transition: 0.5s;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
+
+    }
+
+    #sideNav .navMenu{
+        padding: 0 0 0 30px;
+        font: 16px/54px NGBold;
+        height: 54px;
+        line-height: 54px;
+        font-size: 17px;
+        cursor: pointer;
+        flex-shrink: 0;
+        min-width: 250px;
+
+    }
+    #sideNav .navMenu:hover{
+        color: #fff;
+        opacity: 0.5;
+        background: #ddd;
+
+    }
+</style>
+<script>
+
+    function openNav() {
+        document.getElementById("sideNav").style.width = "250px";
+        //document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        document.getElementById("mask").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("sideNav").style.width = "0";
+        //document.body.style.backgroundColor = "white";
+        document.getElementById("mask").style.display = "none";
+    }
+</script>
+
+<div id="mask" onclick="closeNav()">
+</div>
+
+<div id="sideNav"  class="primary_content_column">
+    <div class="primary_content_row" style="align-items: baseline; background: #6ba6f1; min-width: 250px;
+    justify-content: space-between">
+        <span onclick="closeNav()">엑스</span>
+        <button class="button_transparent" style="width: auto; display: inline;">로그아웃</button>
+    </div>
+    <div style="color: #6ba6f1;">Services</div>
+    <nav class="primary_content_column">
+        <a class="navMenu" onclick="location.href='/send'">보내기</a>
+        <a class="navMenu" onclick="location.href='/receive'">받기</a>
+        <a class="navMenu" onclick="location.href='/listtransactions'">거래내역</a>
+        <a class="navMenu" onclick="location.href='/member/modify'">정보수정</a>
+        <a class="navMenu" onclick="location.href='/security'">보안설정</a>
+        <a class="navMenu" onclick="location.href='/security/sPw'">2차 비밀번호</a>
+    </nav>
+</div>
 
 <div id="default_header">
     <span>Arisu Coin</span>
-    <span>메뉴 버튼</span>
+    <span style="cursor: pointer" onclick="openNav()">메뉴 버튼</span>
 
 </div>
