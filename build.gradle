@@ -50,8 +50,8 @@ dependencies {
 	compile group: 'org.apache.tiles', name: 'tiles-core', version: '3.0.7'    
 	compile group: 'javax.servlet', name: 'jstl'
 	compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: '8.5.20'
-    compile "com.google.zxing:core:3.3.0"
-    compile 'com.google.zxing:javase:3.3.0'
+    compile group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4', version: '1.16'
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     runtime('mysql:mysql-connector-java')
     compileOnly('org.projectlombok:lombok')

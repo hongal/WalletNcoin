@@ -20,11 +20,14 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private NcoinCustomerMapper mapper;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
+		//System.out.println(mapper.findById(username).getId());
 		System.out.println(username);
 		NcoinCustomerDto customer = mapper.findById(username);
+
 		if (customer == null)
 			throw new UsernameNotFoundException(username);
 		

@@ -1,8 +1,11 @@
 package com.geopia.wallet_ncoin.dto;
 
+import lombok.Data;
+
 import java.util.Date;
 import java.util.Set;
 
+@Data
 public class NcoinCustomerDto {
 	int idx;
 	String id;
@@ -10,11 +13,11 @@ public class NcoinCustomerDto {
 	String country;
 	String phone;
 	String ncoin_address;
-	Date reg_date;
-	Date update_date;
+	String reg_date;
+	String update_date;
 	int enabled;
 	
-	public int getEnabled() {
+/*	public int getEnabled() {
 		return enabled;
 	}
 	public void setEnabled(int enabled) {
@@ -67,5 +70,5 @@ public class NcoinCustomerDto {
 	}
 	public void setNcoin_address(String ncoin_address) {
 		this.ncoin_address = ncoin_address;
-	}
+	}*/
 }

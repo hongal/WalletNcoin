@@ -19,16 +19,22 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 import com.geopia.wallet_ncoin.service.UserDetailServiceImpl;
 
-@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	
+	@Autowired
+    AuthProvider authProvider;
+
 	@Autowired
 	DataSource dataSource;
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/res/**");
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
@@ -40,32 +46,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
        .formLogin()
-       			.loginPage("/login").defaultSuccessUrl("/").
+       			.loginPage("/login").defaultSuccessUrl("/").failureUrl("/error").
        	usernameParameter("username").passwordParameter("password")
        			.permitAll().and()
                 
                 .csrf().disable();
+
+        http.authenticationProvider(authProvider);
     }
-    
-    
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-      auth.userDetailsService(new UserDetailServiceImpl())
-      
-      ;
-    }
-   
+
+
     @Autowired
-    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-     System.out.println("test");
-	auth.jdbcAuthentication().dataSource(dataSource)
-     .usersByUsernameQuery(
-      "select id,password, enabled from ncoin_customer where id=?")
-     .authoritiesByUsernameQuery(
-      "select customer_id, role_name from ncoin_customer_role where customer_id=?")
-     .passwordEncoder(bCryptPasswordEncoder);
-    	
-    } 
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("id").password("password").roles("admin");
+    }
 
 
 }

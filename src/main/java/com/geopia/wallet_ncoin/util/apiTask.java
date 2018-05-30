@@ -231,13 +231,13 @@ public class apiTask {
 	     		
 	     
 	     String tx_blob = null;
-	     try {
-			tx_blob = api.sign(sec, gson.toJson(tx_json));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	     
+//	     try {
+//			tx_blob = api.sign(sec, gson.toJson(tx_json));
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
 	     
 	     
 	     return tx_blob;

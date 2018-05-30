@@ -4,7 +4,7 @@ import com.geopia.wallet_ncoin.dto.NcoinCustomerDto;
 
 public interface UserService {
 	
-	public void saveUser(NcoinCustomerDto user);
+	//public void saveUser(NcoinCustomerDto user);
 
-	NcoinCustomerDto findByUsername(String username);
+	NcoinCustomerDto findByUsername(String username, String password);
 }

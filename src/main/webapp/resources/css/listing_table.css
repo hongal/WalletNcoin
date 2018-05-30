@@ -25,10 +25,10 @@
 /* Templete Basic */
 .table_templete_basic { width: 100%; border: 1px solid #E0E0E0; border-top: none; border-right: none; border-collapse: collapse; }
 .table_templete_basic ul { display: table; width: 100%; margin: 0; padding: 0; list-style-type: none; border-top: 1px solid #E0E0E0; }
-.table_templete_basic ul: hover { background-color: #DEF; border: 1px solid #37D; }
+.table_templete_basic ul:hover { background-color: #DEF; border: 1px solid #37D; }
 .table_templete_basic ul li { display: table-cell; margin: 0; padding: 2px 1px; border-right: 1px solid #E0E0E0; box-sizing: border-box; }
 .table_templete_basic tr { margin: 0; padding: 0; list-style-type: none; border-top: 1px solid #E0E0E0; }
-.table_templete_basic tr: hover { background-color: #FEFEFE; border: 1px solid #37D; }
+.table_templete_basic tr:hover { background-color: #FEFEFE; border: 1px solid #37D; }
 .table_templete_basic tr td { margin: 0; padding: 2px 1px; border-right: 1px solid #E0E0E0; box-sizing: border-box; }
 
 .table_templete_basic .header { background-color: #F7F7F9; }
@@ -41,7 +41,7 @@
 
 .paging_templete_basic { width: 100%; margin-top: 16px; text-align: center; }
 .paging_templete_basic span { display: inline-block; padding: 2px; min-width: 28px; line-height: 24px; border: 1px solid #E0E0E0; }
-.paging_templete_basic span: hover { border: 1px solid #37D; cursor: pointer; }
+.paging_templete_basic span:hover { border: 1px solid #37D; cursor: pointer; }
 .paging_templete_basic .active { color: #969696; font-weight: bold; background-color: #F7F7F9; }
 
 /* Templete Black And White */
