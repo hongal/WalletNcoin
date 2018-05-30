@@ -144,14 +144,15 @@
 </div>
 
 <div id="sideNav"  class="primary_content_column">
-    <div class="primary_content_row" style="align-items: baseline; background: #6ba6f1; min-width: 250px;
-    justify-content: space-between">
+    <div class="primary_content_row" style="align-items: baseline; background: #F08B15; min-width: 250px;
+    justify-content: space-between; height: 56px;">
         <span onclick="closeNav()">엑스</span>
         <button class="button_transparent" style="width: auto; display: inline;">로그아웃</button>
     </div>
-    <div style="color: #6ba6f1;">Services</div>
+    <div style="color: #F08B15;">Services</div>
     <nav class="primary_content_column">
-        <a class="navMenu" onclick="location.href='/send'">보내기</a>
+        <a class="navMenu" onclick="location.href='/send'">
+            <img>보내기</a>
         <a class="navMenu" onclick="location.href='/receive'">받기</a>
         <a class="navMenu" onclick="location.href='/listtransactions'">거래내역</a>
         <a class="navMenu" onclick="location.href='/member/modify'">정보수정</a>
@@ -161,7 +162,7 @@
 </div>
 
 <div id="default_header">
-    <span>Arisu Coin</span>
+    <img src="/resources/img/logo_b.png" onclick="location.href='/'" style="cursor: pointer; flex-shrink: 1; height: 100%;">
     <span style="cursor: pointer" onclick="openNav()">메뉴 버튼</span>
 
 </div>

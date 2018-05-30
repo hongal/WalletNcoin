@@ -19,24 +19,30 @@
         <p>${amount}NCN</p>
     </div>
 
-    <div class="primary_content_row" style="max-width: 700px; flex-wrap: wrap; ">
+    <div class="primary_content_row" style="max-width: 700px; flex-wrap: wrap; justify-content: space-between;">
         <div class="main_menu_btn" onclick="location.href='/send'">
-            보내기
+            <img src="/resources/img/menu_send.png">
+            <span>보내기</span>
         </div>
         <div class="main_menu_btn" onclick="location.href='/receive'">
-            받기
+            <img src="/resources/img/menu_receive.png">
+            <span>받기</span>
         </div>
         <div class="main_menu_btn" onclick="location.href='/listtransactions'">
-            거래내역
+            <img src="/resources/img/menu_listtransactions.png">
+            <span>거래내역</span>
         </div>
         <div class="main_menu_btn" onclick="location.href='/member/modify'">
-            정보수정
+            <img src="/resources/img/menu_modify.png">
+            <span>정보수정</span>
         </div>
         <div class="main_menu_btn" onclick="location.href='/security'">
-            보안설정
+            <img src="/resources/img/menu_security.png">
+            <span>보안설정</span>
         </div>
         <div class="main_menu_btn" onclick="location.href='/security/sPw'">
-            2차 비밀번호
+            <img src="/resources/img/menu_sPw.png">
+            <span>2차 비밀번호</span>
         </div>
     </div>
 </div>

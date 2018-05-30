@@ -29,8 +29,8 @@ h3{height:16px;font-size:13px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5
 
 	height: 56px;
 	padding: 10px 15px 10px 15px;
-	background: #5b95de;
-	border-bottom: 1px solid #6ba6f1;
+	background: #F08B15;
+	border-bottom: 1px solid #F7D2A8;
 	box-shadow: 0px 0px 6px #bbb
 }
 
@@ -69,9 +69,9 @@ h3{height:16px;font-size:13px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5
 }
 /*주황색 버튼*/
 .button_primary{
-	background-color: #f9be1c;
+	background-color: #F08B15;
 	color: #fff;
-	border: 1px solid #f9be1c;
+	border: 1px solid #9A713F;
 	padding: 10px 10px 7px;
 
 	border-radius: 6px;
@@ -87,9 +87,9 @@ h3{height:16px;font-size:13px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5
 }
 /*투명버튼*/
 .button_transparent{
-	color: #669fe8;
+	color: #F08B15;
 	background-color: #fff;
-	border: 1px solid #80b3f5;
+	border: 1px solid #9A713F;
 	padding: 10px 10px 7px;
 	border-radius: 6px;
 	display: block;
@@ -101,7 +101,7 @@ h3{height:16px;font-size:13px;letter-spacing:-1px;margin:0 0 5px 0;padding:0 0 5
 }
 .button_transparent:hover{
 	color: #fff;
-	background-color: #669fe8;
+	background-color: #F08B15;
 }
 body{
 	margin: 0 auto;
@@ -126,7 +126,7 @@ input, textarea, select, button {
 
 textarea:focus, input:focus{
 	outline: none;
-	border-bottom-color: #5b95de;
+	border-bottom-color: #F08B15;
 }
 
 @media (min-width: 768px){
