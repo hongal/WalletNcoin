@@ -1,18 +1,38 @@
 package com.geopia.wallet_ncoin.controller;
 
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
+import com.geopia.wallet_ncoin.api.dto.SmsDto;
+import com.geopia.wallet_ncoin.service.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationTrustResolver;
+import org.springframework.security.authentication.AuthenticationTrustResolverImpl;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.geopia.wallet_ncoin.dto.NcoinCustomerDto;
 import com.geopia.wallet_ncoin.mapper.NcoinCustomerMapper;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class RegisterController {
-	
+
+	@Autowired
+	SmsService smsService;
 	@Autowired
 	NcoinCustomerMapper ncoincustomermapper;
 	
@@ -22,32 +42,104 @@ public class RegisterController {
         return "tiles/none/register";
     }
     
-    @RequestMapping("signin")
+    @RequestMapping("/signin")
     public String getSignin() {
-    	
-    	return "tiles/none/signin";
+		AuthenticationTrustResolver trustResolver = new AuthenticationTrustResolverImpl();
+
+		if(trustResolver.isAnonymous(SecurityContextHolder.getContext().getAuthentication())){
+			return "tiles/default/signin";
+		}else{
+			return "redirect:/";
+		}
+
     }
     
 
-	@RequestMapping("/join")
-	public String join(Map<String, Object> param,ModelMap  mv,NcoinCustomerDto customerdto) {
-		
-		try {
-			ncoincustomermapper.addcustomer(customerdto);
-			mv.addAttribute("isSuccess", "true");
-		} catch (Exception e) {
-			
-			
-			mv.addAttribute("isSuccess", "false");
-			mv.addAttribute("errMsg", e.getMessage());
+	@RequestMapping(method = RequestMethod.POST, value = "/api/addCustomer")
+	@ResponseBody
+	public String addCustomer(@RequestBody NcoinCustomerDto customerdto) {
+		int result = ncoincustomermapper.addcustomer(customerdto);
+
+		if(result > 0){
+			System.out.print("success");
+			return "addSuccess!!";
+		}else{
+			return "addFail";
 		}
-		
-		return "tiles/none/login";
 	}
-	
+
+	@RequestMapping(method = RequestMethod.GET, value = "/api/idDuplicateChk")
+	@ResponseBody
+	public String idDuplicateChk(@RequestParam("id")String id){
+
+    	int result = ncoincustomermapper.idDuplicateChk(id);
+    	if(result > 0){
+			return "idDuplicated";
+		}else{
+			return "idUseable";
+		}
+	}
+
+	//문자 전송 후 db입력
+	@RequestMapping(method = RequestMethod.POST, value = "/api/sendSms")
+	@ResponseBody
+	public String smsSend(@RequestBody SmsDto smsDto) throws Exception{
+    	//?id=geopia&pwd=wldhsms&code=$code&snum=027868200&rnum=$mobile&msg=$msg&userid=geopia&ipAddr=$_SERVER[REMOTE_ADDR]
+		int code = new Random().nextInt(10000) + 1000;
+		if (code > 10000) {
+			code = code - 1000;
+		}
+
+		smsDto.setCode(code + "");
+
+
+		int connectionResult = smsService.sendSmsResult(smsDto, "Ncoin 인증번호는 " + smsDto.getCode() + " 입니다 ");
+
+		if(connectionResult == 200){
+			int result = ncoincustomermapper.insertAuthNumber(smsDto);
+			if(result > 0){
+				return "sendSuccess!!";
+			}else{
+				return "insertFail";
+			}
+
+		}else{
+			System.out.print(connectionResult + "");
+			return "fail";
+		}
+
+	}
+
+	//인증하기
+	@RequestMapping(value = "/api/chkCode", method = RequestMethod.GET)
+	@ResponseBody
+	public String chkOtp(@RequestParam("sms_code") String sms_code){
+		int result = ncoincustomermapper.chkCode(sms_code);
+
+		if(result > 0){
+			return "codeChkSuccess!!";
+		}else{
+			return "codeChkFailed!!";
+		}
+	}
+
 	@RequestMapping("/login")
 	public String login(Map<String, Object> param,ModelMap  mv) {
 
-		return "tiles/none/login";
+		AuthenticationTrustResolver trustResolver = new AuthenticationTrustResolverImpl();
+		if(trustResolver.isAnonymous(SecurityContextHolder.getContext().getAuthentication())){
+			return "tiles/default/login";
+		}else{
+			return "redirect:/";
+		}
+	}
+
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth != null){
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		return "tiles/default/login";
 	}
 }

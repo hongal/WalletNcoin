@@ -38,10 +38,16 @@ public class AuthProvider implements AuthenticationProvider {
             return null;
         }
 
+        System.out.println(ncoinCustomerDto.getId());
+
         switch (ncoinCustomerDto.getEnabled()){
             case 1:
-                role = "admin";
+                role = "ADMIN";
                 break;
+            case 2:
+                role = "USER";
+                break;
+
         }
 
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<GrantedAuthority>();

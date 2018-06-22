@@ -25,7 +25,7 @@
         <input id="totalamount" type="text" placeholder="총 전송 수량">
         <input id="destination" type="text" placeholder="보낼 주소">
         <div class="primary_content_row">
-            <button class="button_transparent">QR코드 스캔</button>
+            <button class="button_dark">QR코드 스캔</button>
             <button class="button_primary">보내기</button>
         </div>
     </div>

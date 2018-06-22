@@ -6,10 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.geopia.wallet_ncoin.mapper.NcoinCustomerMapper">
  
    
-	<select id="findById" resultType="com.geopia.wallet_ncoin.dto.NcoinCustomerDto">
-		SELECT * FROM ncoin_customer WHERE id =
-		#{userid}
-	</select>
+
  
 </mapper>
 

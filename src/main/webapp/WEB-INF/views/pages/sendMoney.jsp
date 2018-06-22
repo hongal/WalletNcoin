@@ -6,6 +6,7 @@
 <html>
 <head>
 	<title>보내기</title>
+	<script src="wallet-address-validator.min.js"></script>
 	<script>
         getFee();
         setSenderAddress();
@@ -163,7 +164,16 @@
                 });
             }
         }
+
+        var WAValidator = require('wallet-address-validator');
+
+        var valid = WAValidator.validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', 'BTC');
+        if(valid)
+            console.log('This is a valid address');
+        else
+            console.log('Address INVALID');
 	</script>
+
 </head>
 <body>
 <div class="primary_container">
@@ -258,8 +268,8 @@
 		<div class="primary_content_row">
 			<input id="recipient_address" type="text" class="primary_input" style="width: 90%;"
 				   value="<%=target%>" placeholder="송금받을 지갑 주소">
-			<button class="button_transparent" style="margin-left: 2px; flex-grow: 1; width: auto; padding: 0px"
-					onclick="getLedgerInfo()">조회</button>
+			<button class="button_dark" style="margin-left: 2px; flex-grow: 1; width: auto; padding: 0px"
+                    onclick="getLedgerInfo()">조회</button>
 		</div>
 
 		<input id="tag" type="text" class="primary_input" placeholder="데스티네이션 태그">

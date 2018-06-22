@@ -17,14 +17,9 @@ public class MainController {
     String appName;
     @Autowired
     private AcoinAddressMapper acoinaddressmapper;
-
-
-
-   
     
     @RequestMapping("/")
     public String getMainPage(Model model){
-        System.out.println(appName);
         model.addAttribute("appName", appName);
         AcoinAddressVO vo;
 		try {
@@ -34,7 +29,6 @@ public class MainController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("abaa");
         
         return "tiles/default/main";
     }

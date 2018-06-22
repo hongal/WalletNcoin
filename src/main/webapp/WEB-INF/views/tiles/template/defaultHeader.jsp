@@ -144,25 +144,55 @@
 </div>
 
 <div id="sideNav"  class="primary_content_column">
-    <div class="primary_content_row" style="align-items: baseline; background: #F08B15; min-width: 250px;
+    <div class="primary_content_row" style="align-items: center; background: #F08B15; min-width: 250px;
     justify-content: space-between; height: 56px;">
-        <span onclick="closeNav()">엑스</span>
-        <button class="button_transparent" style="width: auto; display: inline;">로그아웃</button>
+        <span onclick="closeNav()" style="margin-left: 12px">엑스</span>
+        <button class="button_dark" style="width: auto; display: inline; margin-right: 12px;
+        margin-bottom: 0px;" onclick="location.href='/logout'">로그아웃</button>
     </div>
-    <div style="color: #F08B15;">Services</div>
+    <div style="color: #F08B15; padding: 10px 0 10px 30px; font-size: 24px;">Services</div>
     <nav class="primary_content_column">
         <a class="navMenu" onclick="location.href='/send'">
-            <img>보내기</a>
-        <a class="navMenu" onclick="location.href='/receive'">받기</a>
-        <a class="navMenu" onclick="location.href='/listtransactions'">거래내역</a>
-        <a class="navMenu" onclick="location.href='/member/modify'">정보수정</a>
-        <a class="navMenu" onclick="location.href='/security'">보안설정</a>
-        <a class="navMenu" onclick="location.href='/security/sPw'">2차 비밀번호</a>
+            <div class="primary_content_row" style="align-items: center">
+                <img src="../../../../resources/img/icon_send.png" style=" margin-right: 27px;">
+                <span>보내기</span>
+            </div>
+        </a>
+        <a class="navMenu" onclick="location.href='/receive'">
+            <div class="primary_content_row" style="align-items: center">
+                <img src="../../../../resources/img/icon_receive.png" style=" margin-right: 27px;">
+                <span>받기</span>
+            </div>
+        </a>
+        <a class="navMenu" onclick="location.href='/listtransactions'">
+            <div class="primary_content_row" style="align-items: center">
+                <img src="../../../../resources/img/icon_listtransactions.png" style=" margin-right: 27px;">
+                <span>거래내역</span>
+            </div>
+        </a>
+        <a class="navMenu" onclick="location.href='/member/modify'">
+            <div class="primary_content_row" style="align-items: center">
+                <img src="../../../../resources/img/icon_modify.png" style=" margin-right: 27px;">
+                <span>정보수정</span>
+            </div>
+        </a>
+        <a class="navMenu" onclick="location.href='/security'">
+            <div class="primary_content_row" style="align-items: center">
+                <img src="../../../../resources/img/icon_security.png" style=" margin-right: 27px;">
+                <span>보안설정</span>
+            </div>
+        </a>
+        <a class="navMenu" onclick="location.href='/security/sPw'">
+            <div class="primary_content_row" style="align-items: center">
+                <img src="../../../../resources/img/icon_sPw.png" style=" margin-right: 27px;">
+                <span>2차 비밀번호</span>
+            </div>
+        </a>
     </nav>
 </div>
 
 <div id="default_header">
-    <img src="/resources/img/logo_b.png" onclick="location.href='/'" style="cursor: pointer; flex-shrink: 1; height: 100%;">
-    <span style="cursor: pointer" onclick="openNav()">메뉴 버튼</span>
+    <span onclick="location.href='/'" style="cursor: pointer; font-weight: bold; font-size: 1.5em; color: white; ">NCoin</span>
+    <span id="openNavBtn" style="cursor: pointer" onclick="openNav()">메뉴 버튼</span>
 
 </div>

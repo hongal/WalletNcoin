@@ -14,7 +14,7 @@
 <h3>거래내역</h3>
 <div class="button_container">
     <button class="button_primary">받은내역</button>
-    <button class="button_transparent">보낸내역</button>
+    <button class="button_dark">보낸내역</button>
 </div>
 </body>
 </html>

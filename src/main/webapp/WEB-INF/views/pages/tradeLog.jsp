@@ -3,23 +3,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-	String tableWidth = "1440px"; 
 	String mode = request.getParameter("mode") != null ? request.getParameter("mode") : "";
 %>
 
+<div class="primary_container">
+	<h3>거래내역</h3>
+	<div class="primary_content_row">
+		<button class="button_primary" id="receive_transactions" onclick="showreceive()">받은내역</button>
+		<button class="button_dark" id="send_transactions" onclick="showsend()">보낸내역</button>
+	</div>
 
-<div class="button_container">
-    <button class="button_primary" id="receive_transactions" onclick="showreceive()">받은내역</button>
-    <button class="button_transparent" id="send_transactions" onclick="showsend()">보낸내역</button>
+	<div class="trade-list-title" style="padding-bottom:3px; margin-top:15px;">
+		<img src="<c:url value='/res/img/' />MarketReadIcon3.gif" alt="" width="4" height="5" style="padding-bottom: 3px">
+		<span class="CopyText2">송금 로그 목록</span>
+	</div>
+	<div id="trade-list-table"></div>
 </div>
 
-<div class="trade-list-title" style="padding-bottom:3px; margin-top:15px;">
-	<img src="<c:url value='/res/img/' />MarketReadIcon3.gif" alt="" width="4" height="5" style="padding-bottom: 3px">
-	<span class="CopyText2">송금 로그 목록</span>
-</div>
-<div id="trade-list-table" style="width:<%=tableWidth%>;"></div>
+
+
+
+
 <script>
-	
+
 	
 	function showreceive() {
 		var searchType = "aaa";

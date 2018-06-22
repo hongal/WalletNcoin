@@ -37,7 +37,7 @@ public class TransListController {
     @RequestMapping("/listtransactions")
     public String getTransListPage(){
 
-        return "tiles/none/tradeLog";
+        return "tiles/default/tradeLog";
     }
     /*
     @RequestMapping("/tradeLog")

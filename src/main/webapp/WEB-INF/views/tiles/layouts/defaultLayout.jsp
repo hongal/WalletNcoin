@@ -3,36 +3,35 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		
-	
-		<script>
-			var rootContext="<c:url value='/' />";
-		</script>
-	
-		<title><tiles:insertAttribute name="title" /> 관리</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="<c:url value='/resources/css/common.css' />"></link>
-		<link rel="stylesheet" href="<c:url value='/resources/css/dtree.css' />"></link>
-		<link rel="stylesheet" href="<c:url value='/resources/css/listing_table.css' />"></link>
-		<link rel="stylesheet" href="<c:url value='/resources/css/jquery.datetimepicker.css' />"></link>
+<head>
 
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"></link>
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-		
-		<script src="<c:url value='/resources/js/jquery.blockUI.js' />"></script>
-		<script src="<c:url value='/resources/js/wizAjaxCommon.js' />"></script>
 
-		<script src="<c:url value='/resources/js/common.js' />"></script>
-		<script src="<c:url value='/resources/js/dtree.js' />"></script>
-		<script src="<c:url value='/resources/js/listing_table.js' />"></script>
-		<script src="<c:url value='/resources/js/bignumber.js' />"></script>
-		<script src="<c:url value='/resources/js/jquery.datetimepicker.full.min.js' />"></script>
-	</head>
+	<script>
+        var rootContext="<c:url value='/' />";
+	</script>
 
-	<body>
+	<title><tiles:insertAttribute name="title" /> 관리</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="<c:url value='/resources/css/common.css' />"></link>
+	<link rel="stylesheet" href="<c:url value='/resources/css/dtree.css' />"></link>
+	<link rel="stylesheet" href="<c:url value='/resources/css/listing_table.css' />"></link>
+	<link rel="stylesheet" href="<c:url value='/resources/css/jquery.datetimepicker.css' />"></link>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"></link>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="<c:url value='/resources/js/jquery.blockUI.js' />"></script>
+	<script src="<c:url value='/resources/js/wizAjaxCommon.js' />"></script>
+
+	<script src="<c:url value='/resources/js/common.js' />"></script>
+	<script src="<c:url value='/resources/js/dtree.js' />"></script>
+	<script src="<c:url value='/resources/js/listing_table.js' />"></script>
+	<script src="<c:url value='/resources/js/bignumber.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.datetimepicker.full.min.js' />"></script>
+</head>
+
+	<body style="background-color: #EEEEEE">
 	<div id="default_container">
 		<tiles:insertAttribute name="header" />
 		<tiles:insertAttribute name="body"  />
@@ -64,6 +63,6 @@
 				</tr>
 			</tbody>
 		</table>--%>
-		<div style="height:50px;"></div>
+<%--		<div style="height:50px;"></div>--%>
 	</body>
 </html>

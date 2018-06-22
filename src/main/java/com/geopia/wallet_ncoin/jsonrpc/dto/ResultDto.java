@@ -3,7 +3,8 @@ package com.geopia.wallet_ncoin.jsonrpc.dto;
 import java.util.List;
 import java.util.Map;
 
-public class ResultDto {
+public class
+ResultDto {
 
 	private Map cluster;
 	private List<PeerDetailInfoDto> peers;
