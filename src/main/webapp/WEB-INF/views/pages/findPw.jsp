@@ -8,9 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>비밀번호 찾기</title>
 </head>
 <body>
+<div class="primary_container">
+    <div class="primary_content_column">
 
+    </div>
+</div>
 </body>
 </html>

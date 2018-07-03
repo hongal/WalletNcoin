@@ -14,6 +14,7 @@ public class SubmitResultDto {
 		return "SubmitResultDto [detailCode=" + detailCode + ", jsonRPCSubmitResultDto=" + jsonRPCSubmitResultDto
 				+ ", stateCode=" + stateCode + ", tx_blob=" + tx_blob + "]";
 	}
+
 	public int getDetailCode() {
 		return detailCode;
 	}
@@ -26,6 +27,7 @@ public class SubmitResultDto {
 	public void setJsonRPCSubmitResultDto(JsonRPCSubmitResultDto jsonRPCSubmitResultDto) {
 		this.jsonRPCSubmitResultDto = jsonRPCSubmitResultDto;
 	}
+
 	public int getStateCode() {
 		return stateCode;
 	}

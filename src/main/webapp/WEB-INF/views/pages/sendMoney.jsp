@@ -150,6 +150,8 @@
                         ,secret_key:secret_key.value
                     }
                     ,success : function(data) {
+                        console.log('data is ' + data);
+                        console.log(data);
                         if(data.sendState.result.status=='error'){
                             alert(data.sendState.result.error+"\t"+data.sendState.result.error_message);
                             return;
