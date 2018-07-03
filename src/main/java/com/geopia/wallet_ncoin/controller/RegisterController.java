@@ -123,23 +123,4 @@ public class RegisterController {
 		}
 	}
 
-	@RequestMapping("/login")
-	public String login(Map<String, Object> param,ModelMap  mv) {
-
-		AuthenticationTrustResolver trustResolver = new AuthenticationTrustResolverImpl();
-		if(trustResolver.isAnonymous(SecurityContextHolder.getContext().getAuthentication())){
-			return "tiles/default/login";
-		}else{
-			return "redirect:/";
-		}
-	}
-
-	@RequestMapping("/logout")
-	public String logout(HttpServletRequest request, HttpServletResponse response) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth != null){
-			new SecurityContextLogoutHandler().logout(request, response, auth);
-		}
-		return "tiles/default/login";
-	}
 }

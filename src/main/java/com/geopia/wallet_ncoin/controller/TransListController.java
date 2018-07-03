@@ -1,15 +1,19 @@
 package com.geopia.wallet_ncoin.controller;
 
 import java.net.MalformedURLException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import com.geopia.wallet_ncoin.api.dto.TradeListDto;
+import org.ripple.bouncycastle.math.raw.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -23,6 +27,9 @@ import com.google.gson.GsonBuilder;
 import com.sn.common.pagination.PagedList;
 import com.sn.common.pagination.Pager;
 import com.sn.common.pagination.PagingRowBounds;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -35,10 +42,25 @@ public class TransListController {
 
 	
     @RequestMapping("/listtransactions")
-    public String getTransListPage(){
+    public String getTransListPage(Model model){
+		ArrayList<String> addressList;
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String id = auth.getName();
+		addressList = acointransactionmapper.getAddress(id);
+
+		model.addAttribute("addressList", addressList);
 
         return "tiles/default/tradeLog";
     }
+
+	@RequestMapping(value = "/api/getTradeLog", method = RequestMethod.GET, produces = { "application/json", "application/xml" })
+	public 	@ResponseBody ArrayList<TradeListDto> getTransList(@RequestParam("account") String account) {
+		ArrayList<TradeListDto> tradeList;
+
+        tradeList = acointransactionmapper.getTradeLog(account);
+        return tradeList;
+	}
+
     /*
     @RequestMapping("/tradeLog")
 	public String viewSendMoney(Map<String, Object> param, ModelMap  mv, PagingRowBounds bounds, HttpServletRequest request) {
@@ -81,7 +103,7 @@ public class TransListController {
 		return "tiles/none/tradeLog";
 	}
 	*/
-    @RequestMapping("/tradeLog")
+/*    @RequestMapping("/tradeLog")
    	public String viewSendMoney(Map<String, Object> param, ModelMap  mv, PagingRowBounds bounds, HttpServletRequest request) {
    		String current_account = "NHb3CJAWyw4Nj31VRWh36UkukG4b9dtyTs";
    		String type = request.getParameter("type") != null ? request.getParameter("type") : "";
@@ -89,8 +111,7 @@ public class TransListController {
    		String query = request.getParameter("query") != null ? request.getParameter("query") : "";
    		
    		PagedList<AcoinTransactionsDto> list = new PagedList<AcoinTransactionsDto>();
-   		
-   		
+
    		HashMap map = new HashMap();
 		map.put("address", "NHb3CJAWyw4Nj31VRWh36UkukG4b9dtyTs");
 		map.put("limit", 20);
@@ -106,11 +127,11 @@ public class TransListController {
 		HistoryTransactionResultDto dtoa = gson.fromJson(ret, HistoryTransactionResultDto.class);
 		System.out.println(dtoa.getList());
 		Iterator<AcoinTransactionsDto> k = dtoa.getList().iterator();
-		
+		System.out.println("list is " + k.toString());
 		while(k.hasNext()) {
 			
 			AcoinTransactionsDto kk = k.next();
-			System.out.println(kk.getAmount());
+			System.out.println("amount is " + kk.getAmount());
 			
 			if (type.compareTo("send") == 0 )
 			{
@@ -122,14 +143,9 @@ public class TransListController {
 				if (kk.getDestination().compareTo(current_account) == 0)
 					list.add(kk);
 			}
-			
-			
+
 		}
-		
-		
-		
-		
-		
+
    		Pager pager = new Pager(dtoa.getPage().getCurrentPage(), dtoa.getPage().getOffset(), dtoa.getPage().getLimit(), dtoa.getPage().getTotalCount());
    		list.setPager(pager);
    		Integer pageNo = bounds.getPageNo();
@@ -153,6 +169,6 @@ public class TransListController {
    		
    		return "tiles/none/tradeLog";
    	}
-	
+	*/
 
 }

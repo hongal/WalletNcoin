@@ -30,25 +30,25 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		.addResourceLocations("/resources/");
 	}
 	
-    @Bean 
-    public ViewResolver viewResolver(ContentNegotiationManager cnm) { 
+/*    @Bean
+    public ViewResolver viewResolver(ContentNegotiationManager cnm) {
     	List<ViewResolver> resolvers = new ArrayList<ViewResolver>();
     	JsonViewResolver r1 = new JsonViewResolver();
     	resolvers.add(r1);
-    	
+
     	ContentNegotiatingViewResolver cnvr = new ContentNegotiatingViewResolver();
         cnvr.setViewResolvers(resolvers);
     	cnvr.setContentNegotiationManager(cnm);
         return cnvr;
-    }
-    
+    }*/
+
     @Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 		return bCryptPasswordEncoder;
 	}
 
-    @Override
+/*    @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
     	configurer.favorPathExtension(true).
 		ignoreAcceptHeader(true).
@@ -57,6 +57,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		mediaType("html", MediaType.TEXT_HTML).
 		mediaType("xml", MediaType.APPLICATION_XML).
 		mediaType("json", MediaType.APPLICATION_JSON);
-    }
+    }*/
 
 }

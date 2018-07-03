@@ -25,15 +25,15 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		//System.out.println(mapper.findById(username).getId());
-		System.out.println(username);
+
 		NcoinCustomerDto customer = mapper.findById(username);
 
-		if (customer == null)
+		if (customer == null){
 			throw new UsernameNotFoundException(username);
-		
+		}
+
 		Set<GrantedAuthority> grantedAuthorities = new HashSet();
 		grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-		grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 
 		return new User(customer.getId(), customer.getPassword() ,grantedAuthorities);
 	}

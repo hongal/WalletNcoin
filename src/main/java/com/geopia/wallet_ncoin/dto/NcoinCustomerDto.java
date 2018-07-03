@@ -16,6 +16,8 @@ public class NcoinCustomerDto {
 	String reg_date;
 	String update_date;
 	int enabled;
+	String otp;
+
 	
 /*	public int getEnabled() {
 		return enabled;

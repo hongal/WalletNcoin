@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,7 +19,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 import com.geopia.wallet_ncoin.service.UserDetailServiceImpl;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import java.util.Set;
 
 @EnableWebSecurity
 @Configuration
@@ -29,6 +33,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	@Autowired
+    CustomAuthSuccessHandler customAuthSuccessHandler;
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -43,23 +50,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/**").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/signin").permitAll()
-                .antMatchers("/**").authenticated();
+/*                .antMatchers("/login_otp").access("hasRole('ROLE_TEMPORARY')")*/
+                .antMatchers("/**").access(
+                        "hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')");
+
 
         http.csrf().disable();
 
-        http.formLogin()
+        http.formLogin().successHandler(customAuthSuccessHandler)
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/")
-                .failureUrl("/error").
-                usernameParameter("username").passwordParameter("password").permitAll();
+                .failureUrl("/error")
+                .usernameParameter("username").passwordParameter("password").permitAll();
 
         http.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
                 .invalidateHttpSession(true);
-
-
 
         http.exceptionHandling().accessDeniedPage("/login");
 
@@ -80,6 +88,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authenticationProvider(authProvider);
     }
+
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 

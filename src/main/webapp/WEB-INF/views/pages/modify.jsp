@@ -162,25 +162,7 @@
 
             }
         }
-
     </script>
-    <style>
-        .button_dark_fixed{
-            color: #fff;
-            background-color: #4C4C4C;
-            padding: 7px 10px 7px 10px;
-            border-radius: 6px;
-            display: block;
-            width: 100%;
-            font-size: 19px;
-            text-align: center;
-            cursor: pointer;
-            height: auto;
-            box-shadow: none;
-            border: none;
-            cursor: default;
-        }
-    </style>
 </head>
 <body>
 <div class="primary_container">

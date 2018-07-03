@@ -146,7 +146,8 @@
 <div id="sideNav"  class="primary_content_column">
     <div class="primary_content_row" style="align-items: center; background: #F08B15; min-width: 250px;
     justify-content: space-between; height: 56px;">
-        <span onclick="closeNav()" style="margin-left: 12px">엑스</span>
+        <img src="../../../../resources/img/close_x.png" onclick="closeNav()"
+             style="margin: 12px 0px 12px 12px; width: auto; height: 50%;" />
         <button class="button_dark" style="width: auto; display: inline; margin-right: 12px;
         margin-bottom: 0px;" onclick="location.href='/logout'">로그아웃</button>
     </div>
@@ -193,6 +194,6 @@
 
 <div id="default_header">
     <span onclick="location.href='/'" style="cursor: pointer; font-weight: bold; font-size: 1.5em; color: white; ">NCoin</span>
-    <span id="openNavBtn" style="cursor: pointer" onclick="openNav()">메뉴 버튼</span>
+    <img id="openNavBtn" src="../../../../resources/img/menu.png" style="cursor: pointer" onclick="openNav()"/>
 
 </div>

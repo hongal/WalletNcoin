@@ -51,24 +51,25 @@
 
         });
 
-
-        
         function createAddress() {
+            var data = {
+
+            }
+
             $.ajax({
-                url: '/api/createAddress',
+                url: '/api/login_otp',
                 type: 'get',
                 contentType : "application/json; charset=UTF-8",
                 success: function (args) {
                     console.log(args);
-                    if(args == 'createSuccess!!'){
-                        alert('생성완료!');
-                        location.reload();
+                    if(args == 'otpLoginSuccess!!'){
+                        alert('로그인되었습니다!');
+
                     }else{
                         alert('생성실패!');
                     }
                 }
             });
-            
         }
 
         function copyAddress() {
