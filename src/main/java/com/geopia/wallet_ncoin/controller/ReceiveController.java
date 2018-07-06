@@ -1,7 +1,6 @@
 package com.geopia.wallet_ncoin.controller;
 
 import com.geopia.wallet_ncoin.mapper.ReceiveMapper;
-import netscape.javascript.JSObject;
 import org.apache.jasper.tagplugins.jstl.core.Url;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

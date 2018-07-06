@@ -1,7 +1,6 @@
 package com.geopia.wallet_ncoin.controller;
 
 import com.geopia.wallet_ncoin.mapper.SecurityMapper;
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import org.apache.commons.codec.binary.Base32;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
