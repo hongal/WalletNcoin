@@ -52,7 +52,6 @@ public class AuthProvider implements AuthenticationProvider {
             role = "ROLE_TEMPORARY";
         }
 
-        System.out.println("ROLE : " + role);
 
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<GrantedAuthority>();
         grantedAuthorityList.add(new SimpleGrantedAuthority(role));

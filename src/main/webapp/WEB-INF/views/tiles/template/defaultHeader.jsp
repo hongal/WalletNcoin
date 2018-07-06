@@ -147,7 +147,7 @@
     <div class="primary_content_row" style="align-items: center; background: #F08B15; min-width: 250px;
     justify-content: space-between; height: 56px;">
         <img src="../../../../resources/img/close_x.png" onclick="closeNav()"
-             style="margin: 12px 0px 12px 12px; width: auto; height: 50%;" />
+             style="margin: 12px 0px 12px 12px; width: auto; height: 50%; cursor:pointer;" />
         <button class="button_dark" style="width: auto; display: inline; margin-right: 12px;
         margin-bottom: 0px;" onclick="location.href='/logout'">로그아웃</button>
     </div>

@@ -1,3 +1,5 @@
+var reg = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+
 function idChanged() {
     $("#idUnChked").css('display', "block");
 }
@@ -14,14 +16,13 @@ function chkPw() {
 
 function idDuplicateChk() {
     console.log('click');
-    var regExpId = /^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/;
+
     var id = $("#id").val();
     var data = {
     	id: id
 	}
-	console.log(id);
 
-	if(!regExpId.test(id)) {
+    if(!reg.test(id)){
         alert('영문/숫자 조합으로 6 ~ 14자리를 입력해주세요!');
     }else{
         $.ajax({
@@ -87,6 +88,36 @@ function addCustomer() {
 
 }
 
+function chkHpDuplicated() {
+    var phone = $("#phone").val();
+
+    if($('#id').prop('disabled') == false){
+        alert('아이디 중복확인을 진행해주세요!');
+    }else if(phone.length == 0){
+        alert('휴대폰번호를 입력해주세요!');
+    }else{
+
+        var data = {
+            phone : phone
+        }
+        $.ajax({
+            url: '/api/hpDuplicateChk',
+            type: 'get',
+            data: data,
+            contentType : "application/json; charset=UTF-8",
+            success: function (args) {
+                console.log(args);
+                if(args == 'HpNotDuplictaed!!') {
+                    alert('사용가능한 번호입니다!');
+                    $('#phone').prop('disabled', true);
+                }else if(args == 'HpDuplicated!!'){
+                    alert('중복되는 번호입니다!');
+                }
+            }
+        });
+    }
+}
+
 function sendSms() {
     //?id=geopia&pwd=wldhsms&code=$code&snum=027868200&rnum=$mobile&msg=$msg&userid=geopia&ipAddr=$_SERVER[REMOTE_ADDR]
     var data;
@@ -133,17 +164,20 @@ function sendSms() {
 
 function checkCode() {
     var sms_code = $("#sms_code").val();
+    var num = $('#phone').val();
 
     if ( sms_code.length > 0 && sms_code != "Default text" ){
 
         var data = {
-            sms_code: sms_code
+            code: sms_code,
+            num: num
         }
+
 
         $.ajax({
             url: '/api/chkCode',
-            type: 'get',
-            data: data,
+            type: 'post',
+            data: JSON.stringify(data),
             contentType : "application/json; charset=UTF-8",
             success: function (args) {
                 if(args == 'codeChkSuccess!!'){

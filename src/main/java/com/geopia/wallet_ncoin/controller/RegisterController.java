@@ -11,7 +11,9 @@ import java.util.Map;
 import java.util.Random;
 
 import com.geopia.wallet_ncoin.api.dto.SmsDto;
+import com.geopia.wallet_ncoin.mapper.MemberMapper;
 import com.geopia.wallet_ncoin.service.SmsService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.authentication.AuthenticationTrustResolverImpl;
@@ -35,6 +37,8 @@ public class RegisterController {
 	SmsService smsService;
 	@Autowired
 	NcoinCustomerMapper ncoincustomermapper;
+	@Autowired
+	MemberMapper memberMapper;
 	
     @RequestMapping("/register")
     public String getRegisterPage(){
@@ -80,6 +84,19 @@ public class RegisterController {
 		}
 	}
 
+	@RequestMapping("/api/hpDuplicateChk")
+	@ResponseBody
+	public String chkDupHp(@Param("phone") String phone){
+
+    	int hpChkRes = memberMapper.checkHp(phone);
+
+    	if(hpChkRes > 0){
+    		return "HpDuplicated!!";
+		}else{
+			return "HpNotDuplictaed!!";
+		}
+	}
+
 	//문자 전송 후 db입력
 	@RequestMapping(method = RequestMethod.POST, value = "/api/sendSms")
 	@ResponseBody
@@ -91,7 +108,6 @@ public class RegisterController {
 		}
 
 		smsDto.setCode(code + "");
-
 
 		int connectionResult = smsService.sendSmsResult(smsDto, "Ncoin 인증번호는 " + smsDto.getCode() + " 입니다 ");
 
@@ -111,10 +127,10 @@ public class RegisterController {
 	}
 
 	//인증하기
-	@RequestMapping(value = "/api/chkCode", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/chkCode", method = RequestMethod.POST)
 	@ResponseBody
-	public String chkOtp(@RequestParam("sms_code") String sms_code){
-		int result = ncoincustomermapper.chkCode(sms_code);
+	public String chkOtp(@RequestBody SmsDto smsDto){
+		int result = ncoincustomermapper.chkCode(smsDto);
 
 		if(result > 0){
 			return "codeChkSuccess!!";

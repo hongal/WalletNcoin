@@ -69,7 +69,17 @@ public class LoginController {
     @RequestMapping("/login_otp")
     public String loginOtp(){
 
-        return "tiles/default/loginOtp";
+        AuthenticationTrustResolver trustResolver = new AuthenticationTrustResolverImpl();
+        Set<String> roles =
+                AuthorityUtils.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
+
+        if(roles.contains("ROLE_USER") || roles.contains("ROLE_ADMIN")){
+            return "redirect:/";
+        }else{
+            return "tiles/default/loginOtp";
+        }
+
+
     }
 
 
@@ -94,5 +104,20 @@ public class LoginController {
         }else{
             return "otpLoginFail!!";
         }
+    }
+
+    @RequestMapping("/login_error")
+    public String loginError(){
+
+        AuthenticationTrustResolver trustResolver = new AuthenticationTrustResolverImpl();
+        Set<String> roles =
+                AuthorityUtils.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
+
+        if(roles.contains("ROLE_USER") || roles.contains("ROLE_ADMIN") || roles.contains("ROLE_TEMPORARY")){
+            return "redirect:/";
+        }else{
+            return "tiles/default/loginError";
+        }
+
     }
 }

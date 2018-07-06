@@ -33,6 +33,11 @@
             });
         }
     </script>
+    <style>
+        #openNavBtn{
+            display: none;
+        }
+    </style>
     <title>OTP로그인</title>
 </head>
 <body>
@@ -42,6 +47,7 @@
         <input id="otp_login_key" class="primary_input" style="width: 60%; text-align: center"
                placeholder="구글 authenticator 키를 입력해주세요!">
         <button class="button_primary" style="width: 60%;" onclick="otpLogin()">OTP 로그인</button>
+        <button class="button_primary" style="width: 60%;" onclick="location.href='/logout'">로그인 취소</button>
 
     </div>
 </div>

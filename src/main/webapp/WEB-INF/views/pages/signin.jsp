@@ -34,8 +34,9 @@
 			</select>
 			<div class="primary_content_row" style="align-items: center">
 				<input id="phone" class="primary_input" placeholder="휴대폰번호" style="flex-grow: 1">
-				<button class="button_dark" style="width: auto" onclick="sendSms()">인증번호 전송</button>
+				<button class="button_dark" style="width: auto" onclick="chkHpDuplicated()">중복확인</button>
 			</div>
+			<button class="button_primary" onclick="sendSms()">인증번호 전송</button>
 			<p style="color: #bbb; font-size: 17px; padding-left: 10px">
 				-를 제외한 숫자만 입력해 주세요.<br>
 				EX)01012345678

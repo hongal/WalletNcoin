@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.geopia.wallet_ncoin.domain.AcoinAddressVO;
@@ -24,6 +25,8 @@ import com.geopia.wallet_ncoin.api.dto.SendMoneyDto;
 import com.geopia.wallet_ncoin.jsonrpc.dto.AccountDataDto;
 import com.geopia.wallet_ncoin.jsonrpc.dto.JsonRPCDto;
 import com.geopia.wallet_ncoin.util.ApiResponseCode;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -53,8 +56,8 @@ public class SendController {
         return "tiles/default/sendMoney";
     }
     
-    @RequestMapping("/sendCoinWithMsg")
-	public String sendCoinWithMsg(Map<String, Object> paramss, ModelMap  mv, HttpServletRequest request,SendMoneyDto sendParam) {
+    @RequestMapping(value = "/api/sendCoinWithMsg" , method = RequestMethod.POST)
+	public String sendCoinWithMsg(Map<String, Object> paramss, ModelMap  mv, HttpServletRequest request, SendMoneyDto sendParam) {
 		
 		Exception ex=null;
 		try {
@@ -111,8 +114,8 @@ public class SendController {
 		
 		return "tiles/default/tradeLog";
 	}
-    
-    @RequestMapping("/getFee")
+
+	@RequestMapping("/api/getFee")
 	public String getFee(Map<String, Object> param, ModelMap  mv, HttpServletRequest request) {
 		SettingDto dto;
 		try {
@@ -125,14 +128,14 @@ public class SendController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-	
-		
+
+
+
+
 		ApiResponseCode.makeResponse(mv, ApiResponseCode.StateCode.SUCCESS, ApiResponseCode.DetailCode.SUCCESS, null);
-		
+
 		return "tiles/default/setting";
-	
+
 	}
     
     

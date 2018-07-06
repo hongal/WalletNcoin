@@ -17,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 
 import com.geopia.wallet_ncoin.Config.viewresolver.JsonViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
@@ -41,6 +42,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     	cnvr.setContentNegotiationManager(cnm);
         return cnvr;
     }
+
+
 
     @Bean
 	public BCryptPasswordEncoder passwordEncoder() {

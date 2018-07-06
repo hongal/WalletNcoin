@@ -11,6 +11,8 @@
     <title>정보수정</title>
     <script>
 
+        var reg = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+
 
         function showPwChange() {
             $('#changePwBtn').removeClass("button_primary").addClass("button_dark_fixed");
@@ -39,7 +41,7 @@
             }
             if(pw != pwChk){
                 alert("패스워드가 일치하지 않습니다!");
-            }else if(!/^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/.test(pw)){
+            }else if(!reg.test(pw)){
                 alert('영문/숫자 조합의 패스워드 6 ~ 14자리를 입력해주세요!');
             }else{
                 console.log("send");
@@ -65,9 +67,7 @@
         
         function changeHP() {
 
-            if($("#country").val() == 0){
-                alert('국가를 선택해 주세요!');
-            }else if($("#phone").val().length == 0){
+            if($("#phone").val().length == 0){
                 alert('휴대폰 번호를 입력해주세요!');
             }else if($('#auth_btn').prop('disabled') == false){
                 alert('휴대폰 인증을 진행해주세요!');
@@ -121,6 +121,7 @@
                                 $('#sms_code').prop('disabled', false);
                                 $('#sms_code').val('');
                                 $('#auth_btn').prop('disabled', false);
+                                $('#phone').prop('disabled', true);
                             }else if('HpDuplicated'){
                                 alert('중복되는 번호입니다!!');
                             }else{
@@ -134,19 +135,22 @@
 
         function checkCode() {
             var sms_code = $("#sms_code").val();
+            var num = $('#phone').val();
 
             if ( sms_code.length > 0 && sms_code != "Default text" ){
 
                 var data = {
-                    sms_code: sms_code
+                    code: sms_code,
+                    num: num
                 }
 
                 $.ajax({
                     url: '/api/chkCode',
-                    type: 'get',
-                    data: data,
+                    type: 'post',
+                    data: JSON.stringify(data),
                     contentType : "application/json; charset=UTF-8",
                     success: function (args) {
+                        console.log(args);
                         if(args == 'codeChkSuccess!!'){
                             alert('인증완료!');
                             $('#sms_code').prop('disabled', true);
@@ -181,13 +185,6 @@
         </div>
 
         <div id="changePhoneForm" class="primary_content_column" style="display: none">
-            <select id="country">
-                <option style="display: none" value="0"> 국가</option>
-                <option value="1">한국</option>
-                <option value="2">미국</option>
-                <option value="3">일본</option>
-                <option value="4">중국</option>
-            </select>
             <div class="primary_content_row" style="align-items: center">
                 <input id="phone" class="primary_input" placeholder="휴대폰번호" style="flex-grow: 1">
                 <button class="button_dark" style="width: auto" onclick="sendSms()">인증번호 전송</button>

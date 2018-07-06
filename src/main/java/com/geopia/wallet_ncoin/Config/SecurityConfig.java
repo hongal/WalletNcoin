@@ -21,7 +21,11 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import com.geopia.wallet_ncoin.service.UserDetailServiceImpl;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.Set;
 
 @EnableWebSecurity
@@ -50,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/**").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/signin").permitAll()
-/*                .antMatchers("/login_otp").access("hasRole('ROLE_TEMPORARY')")*/
+                .antMatchers("/resetPw").permitAll()
                 .antMatchers("/**").access(
                         "hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')");
 
@@ -61,7 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/")
-                .failureUrl("/error")
+                .failureUrl("/login_error")
                 .usernameParameter("username").passwordParameter("password").permitAll();
 
         http.logout()
@@ -93,5 +97,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://www.ncoin.news"));
+        configuration.setAllowedOrigins(Arrays.asList("http://m.ncoin.news"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }

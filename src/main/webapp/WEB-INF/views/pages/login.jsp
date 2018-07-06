@@ -69,7 +69,7 @@
 		<button class="button_primary" name="submit" type="submit" value="로그인">로그인</button>
 	</form>
 	<div class="primary_content_row" >
-		<button class="button_dark" style="margin-right: 12px">비밀번호 찾기</button>
+		<button class="button_dark" style="margin-right: 12px" onclick="location.href='/resetPw'">비밀번호 찾기</button>
 		<button class="button_dark" onclick="location.href='/signin'">회원가입</button>
 	</div>
 </div>

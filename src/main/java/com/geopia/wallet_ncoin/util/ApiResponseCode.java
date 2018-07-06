@@ -211,6 +211,7 @@ public class ApiResponseCode {
 			mv.addAttribute("stateCode", StateCode.ERROR);
 			mv.addAttribute("detailCode", DetailCode.ERR_UN_KNOWN);
 		}
+
 	}
 	
 	

@@ -29,7 +29,7 @@
                 alert('OTP사용에 체크해주세요!');
             }else{
                 $.ajax({
-                    url: '/api/createOtp',
+                    url: '/api/createOtp.json',
                     type: 'get',
                     contentType : "application/json; charset=UTF-8",
                     success: function (args) {

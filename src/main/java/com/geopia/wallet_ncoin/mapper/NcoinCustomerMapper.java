@@ -27,6 +27,6 @@ public interface NcoinCustomerMapper {
 			"ON DUPLICATE KEY UPDATE mobile = #{num} , otp = #{code}")
 	int insertAuthNumber(SmsDto smsDto);
 
-	@Select("SELECT count(*) from ncoin_auth_number WHERE otp = #{sms_code}")
-	int chkCode(String otp);
+	@Select("SELECT count(*) from ncoin_auth_number WHERE otp = #{code} and mobile = #{num}")
+	int chkCode(SmsDto smsDto);
 }

@@ -52,25 +52,22 @@
         });
 
         function createAddress() {
-            var data = {
-
-            }
-
             $.ajax({
-                url: '/api/login_otp',
+                url: '/api/createAddress',
                 type: 'get',
                 contentType : "application/json; charset=UTF-8",
                 success: function (args) {
                     console.log(args);
-                    if(args == 'otpLoginSuccess!!'){
-                        alert('로그인되었습니다!');
-
+                    if(args == 'createSuccess!!'){
+                        alert('생성완료!');
+                        location.reload();
                     }else{
                         alert('생성실패!');
                     }
                 }
             });
         }
+
 
         function copyAddress() {
             console.log("click");
@@ -89,9 +86,18 @@
 <body>
 <div class="primary_container">
     <div class="primary_content_column">
-        <h2>내 지갑 정보</h2>
         <h3>받기</h3>
-        <h3>아래 주소를 클릭해주세요!</h3>
+
+        <c:if test="${empty addressList}">
+            <div id="none_address_attention" class="attention" >
+                <p>등록된 지갑이</p>
+                <p>없습니다!</p>
+            </div>
+        </c:if>
+
+        <c:if test="${not empty addressList}">
+            <h3>아래 주소를 클릭해주세요!</h3>
+        </c:if>
     </div>
     <div id="register_body" style="display: none">
     </div>
@@ -99,10 +105,9 @@
         <c:forEach var="address" items="${addressList}">
             <div id="addressRow" class="primary_content_row">
                 <div id="address" style="cursor: pointer; width: auto; flex-grow: 3; padding-left: 20px">${address}</div>
-                <button id="copyAddressBtn" class="button_primary" style="flex-grow: 1; width: auto " >주소복사</button>
+                <button id="copyAddressBtn" class="button_primary" style="flex-grow: 1; width: auto " onclick="copyAddress()">주소복사</button>
             </div>
         </c:forEach>
-
 
 <%--        <button class="button_dark">지갑 추가</button>--%>
         <button class="button_primary" onclick="createAddress()">지갑 생성</button>

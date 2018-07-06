@@ -91,7 +91,8 @@
 
         function getFee() {
             callWizAjax({
-                url : "<c:url value='/getFee.json' />"
+                /*url : "<c:url value='/getFee.json' />"*/
+                url : '/api/getFee.json'
                 ,data : {
                 }
                 ,success : function(data) {
@@ -140,7 +141,7 @@
             if (confirm(recipient_address.value + ' 에게 ' + sendAmountObj.value + ' 송금 하시겠습니까?'))
             {
                 callWizAjax({
-                    url : "<c:url value='/sendCoinWithMsg.json' />"
+                    url : '/api/sendCoinWithMsg.json'
                     ,data : {
                         recipient_address:recipient_address.value
                         ,tag:tag.value
@@ -152,8 +153,8 @@
                     ,success : function(data) {
                         console.log('data is ' + data);
                         console.log(data);
-                        if(data.sendState.result.status=='error'){
-                            alert(data.sendState.result.error+"\t"+data.sendState.result.error_message);
+                        if(data.sendState.jsonRPCSubmitResultDto.status=='error'){
+                            alert(data.sendState.jsonRPCSubmitResultDto.error+"\t"+data.jsonRPCSubmitResultDto.result.error_message);
                             return;
                         }
                         console.log(data);

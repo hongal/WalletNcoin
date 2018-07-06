@@ -17,6 +17,28 @@
     </div>
 
     <div id="tradeListContainer" class="primary_content_column">
+
+        <%--지갑주소가 없을경우 메세지--%>
+        <c:if test="${empty addressList}">
+            <div id="none_address_attention" class="attention" >
+                <p>등록된 지갑이</p>
+                <p>없습니다!</p>
+            </div>
+        </c:if>
+
+            <%--지갑 주소가 있을경우 메세지--%>
+        <c:if test="${not empty addressList}">
+            <div id="click_attention" class="attention">
+                <p>지갑주소를</p>
+                <p>선택해주세요!</p>
+            </div>
+        </c:if>
+
+        <div id="none_log_attention" class="attention" style="display:none;" >
+            <p>거래내역이</p>
+            <p>없습니다!</p>
+        </div>
+
         <div id="tradeList" class="primary_content_column" style="width: 100%;">
 
         </div>
@@ -75,29 +97,37 @@
 
         });
     });
-    
+
+
+
     function getAddress() {
         pageReset()
         getTradeLog();
     }
 
     function getTradeLog() {
+        $('#click_attention').css('display', 'none');
         var data = {
             account: address,
         }
         $.ajax({
-            url: '/api/getTradeLog',
+            url: '/api/getTradeLog.json',
             type: 'get',
             contentType : "application/json; charset=UTF-8",
             data: data,
             success: function (args) {
-                console.log(args);
+                if(args.length > 0){
+                    console.log('exist');
+                    $('#none_log_attention').css('display', 'none');
+                }else{
+                    console.log('none');
+                    $('#none_log_attention').css('display', 'block');
+                }
                 if(args.length > 0){
                     array = args;
 
                     totalCount = array.length;//총 게시물수 구하기
                     //총 페이지수 구하기
-
                     totalPage = parseInt(totalCount / countList);
 
                     if (parseInt(totalCount % countList) > 0) {
@@ -162,6 +192,8 @@
         startRow = 1;
         startPage = 0;
         array = '';
+        $("#page_container").empty();
+        $('#tradeList').empty();
     }
 /*
 	function showreceive() {
