@@ -22,11 +22,7 @@ public class WalletNcoinApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(WalletNcoinApplication.class, args);
     }
-    
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder)
-	{
-		return builder.sources(WalletNcoinApplication.class);
-	}
+   
     
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource)throws Exception{

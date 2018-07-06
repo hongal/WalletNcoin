@@ -1,4 +1,4 @@
-package com.geopia.wallet_ncoin.Controller;
+package com.geopia.wallet_ncoin.controller;
 
 
 import com.geopia.wallet_ncoin.api.dto.SmsDto;
