@@ -33,6 +33,10 @@ public class WalletNcoinApplication extends SpringBootServletInitializer {
         return sessionFactory.getObject();
     }
 
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder)
+    {
+        return builder.sources(WalletNcoinApplication.class);
+    }
 
 
 }
